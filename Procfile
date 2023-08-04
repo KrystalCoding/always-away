@@ -1,1 +1,1 @@
-web: gunicorn always-away.wsgi
+web: gunicorn alwaysaway.wsgi
