@@ -8,13 +8,14 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-            {% for post in post_list %}
+                {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card-mb-4">
                         <div class="card-body">
                             <div class="image_container">
-                                {% if "placeholder" in post-featured_image.url %}
-                                <img class="card-img-top" src="https://codeinstitute.s3.amazonews.com/fullstack/blog/default.jpg">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class="card-img-top"
+                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
@@ -26,16 +27,17 @@
                                     <p class="card-text">{{ post.exerpt }}</p>
                                 </a>
                                 <hr />
-                                <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart"></i>{{ post.number_of_likes }}</p>
+                                <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart"></i>{{
+                                    post.number_of_likes }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            {% if forloop.counter|divisibleby:3 %}
+                {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
-            {% enfif %}
-            {% endfor %}
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -44,12 +46,13 @@
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% enfif %}
+            {% endif %}
             {% if page_obj.has_next%}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
+    {% endif %}
 </div>
 
-{%endblock%}
+{% endblock %}
