@@ -10,9 +10,9 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
-                    <div class="card-mb-4">
+                    <div class="card mb-4">
                         <div class="card-body">
-                            <div class="image_container">
+                            <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
@@ -46,7 +46,7 @@
             {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
             {% endif %}
-            {% if page_obj.has_next%}
+            {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
@@ -54,4 +54,4 @@
     {% endif %}
 </div>
 
-{% endblock %}
+{%endblock%}
