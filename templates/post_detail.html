@@ -41,11 +41,13 @@
                                 {% csrf_token %}
                                 {% if liked %}
 
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="fas fa-heart"></i></button>
 
                                 {% else %}
 
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="far fa-heart"></i></button>
 
                                 {% endif %}
 
@@ -55,8 +57,8 @@
                             <span class="text-secondary"><i class="far fa-heart"></i></span>
                             {% endif %}
 
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <span class="text-secondary">{{ post.number_of_likes }} </span>
+                            <!-- The number of likes goes before the closing strong tag -->
+                            <span class="text-secondary">{{ post.number_of_likes }} </span>
                         </strong>
                     </div>
                     <div class="col-1">
@@ -102,7 +104,7 @@
                 <!-- For later -->
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval
+                    Your comment has been successfully submitted and is awaiting approval
                 </div>
                 {% else %}
 
@@ -124,6 +126,12 @@
                 </div>
                 {% endif %}
 
+                <script>
+                    setTimeout(function () {
+                        $('.alert').fadeOut('slow');
+                    }, 2000);
+                </script>
+
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
@@ -137,5 +145,14 @@
         </div>
     </div>
 </div>
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert {{ message.tags }} role=" alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
 
 {% endblock content %}
