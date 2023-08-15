@@ -3,7 +3,9 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 class PostList(generic.ListView):
@@ -33,6 +35,8 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+    @method_decorator(login_required)
 
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -76,4 +80,19 @@ class PostLike(View):
             post.likes.add(request.user)
         
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+@login_required
+def create_blog_post(request):
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.author = request.user
+            new_post.save()
+            messages.success(request, 'Your post has been created!')
+            return redirect('blog:index')  # Redirect to the blog index page
+    else:
+        form = BlogForm()
+    return render(request, 'blog/create_post.html', {'form': form})
         
