@@ -29,7 +29,6 @@
             <a class="custom-logo" href="{% url 'home' %}">
                 <span class="brand-text">A<span class="gray-dot">l</span>ways <span class="blue-o">A</span>way</span>
             </a>
-            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,8 +36,9 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </li>
+                        <!--<a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>--> 
+                   
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>

@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Post
-from .forms import CommentForm, PostForm
+from .forms import CommentForm#, PostForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -84,15 +84,15 @@ class PostLike(View):
 
 @login_required
 def create_blog_post(request):
-    if request.method == 'POST':
-        form = BlogForm(request.POST)
-        if form.is_valid():
-            new_post = form.save(commit=False)
-            new_post.author = request.user
-            new_post.save()
-            messages.success(request, 'Your post has been created!')
-            return redirect('blog:index')  # Redirect to the blog index page
-    else:
-        form = BlogForm()
-    return render(request, 'blog/create_post.html', {'form': form})
+   if request.method == 'POST':
+       form = PostForm(request.POST)
+       if form.is_valid():
+           new_post = form.save(commit=False)
+           new_post.author = request.user
+           new_post.save()
+           messages.success(request, 'Your post has been created!')
+           return redirect('blog:index')  # Redirect to the blog index page
+   else:
+       form = PostForm()
+   return render(request, 'blog/create_post.html', {'form': form})
         
