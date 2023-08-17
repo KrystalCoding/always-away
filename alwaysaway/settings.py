@@ -33,7 +33,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['8000-krystalcodi-fullstackpr-88zimg00l5o.ws-eu103.gitpod.io', '8000-krystalcodi-fullstackpr-88zimg00l5o.ws-eu102.gitpod.io', 'always-away.herokuapp.com', 'localhost', 'always-away-227aba88ca4e.herokuapp.com']
+ALLOWED_HOSTS = ['8000-krystalcodi-fullstackpr-88zimg00l5o.ws-eu104.gitpod.io', '8000-krystalcodi-fullstackpr-88zimg00l5o.ws-eu103.gitpod.io', '8000-krystalcodi-fullstackpr-88zimg00l5o.ws-eu102.gitpod.io', 'always-away.herokuapp.com', 'localhost', 'always-away-227aba88ca4e.herokuapp.com']
 
 
 # Application definition

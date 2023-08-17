@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .models import Post
-from .forms import CommentForm#, PostForm
+from .models import Post, Comment
+from .forms import CommentForm, PostForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -91,8 +91,71 @@ def create_blog_post(request):
            new_post.author = request.user
            new_post.save()
            messages.success(request, 'Your post has been created!')
-           return redirect('blog:index')  # Redirect to the blog index page
+           return redirect('blog:index')
    else:
        form = PostForm()
    return render(request, 'blog/create_post.html', {'form': form})
         
+
+def blog_index(request):
+    posts = Post.objects.all().order_by('-created_on')
+    context = {
+        "posts": posts,
+    }
+    return render(request, "blog_index.html", context)
+
+def blog_category(request, category):
+    posts = Post.objects.filter(
+        categories__name__contains=category
+    ).order_by(
+        '-created_on'
+    )
+    context = {
+        "category": category,
+        "posts": posts
+    }
+    return render(request, "blog_category.html", context)
+
+def blog_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    form = CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = Comment(
+                author=form.cleaned_data["author"],
+                body=form.cleaned_data["body"],
+                post=post
+            )
+            comment.save()
+    comments = Comment.objects.filter(post=post)
+    context = {
+        "post": post,
+        "comments": comments,
+        "form": form,
+    }
+
+    return render(request, "blog_detail.html", context)
+
+def blog_post(request):
+    post_form = PostForm()
+    if request.method == 'POST':
+        post_form = PostForm(request.POST)
+        if post_form.is_valid():
+            post = Post(
+                title=post_form.cleaned_data["title"],
+                author=post_form.cleaned_data["author"],
+                body=post_form.cleaned_data["body"],
+            )
+            post.save()
+
+    context = {
+        "post_form": post_form,
+    }
+
+    args = {}
+    args['post_form'] = post_form
+
+    return render(request, "blog_post.html", args)
+    
