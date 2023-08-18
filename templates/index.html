@@ -6,7 +6,7 @@
     <div class="row">
 
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-8 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
@@ -19,14 +19,13 @@
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="Image">
                                 {% endif %}
-                                <div class="image-overlay">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                    <p class="card-text text-muted">{{ post.created_on }}</p>
-                                </div>
                             </div>
                             <div class="card-body">
                                 <h2 class="card-title">{{ post.title }}</h2>
+                                <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
                                 <p class="card-text">{{ post.exerpt }}</p>
+                                <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary image-overlay">Read
+                                    More &rarr;</a>
                             </div>
                         </a>
                     </div>

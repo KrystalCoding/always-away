@@ -15,7 +15,7 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-class PostDetail(View):
+class PostDetail(View):    
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -37,7 +37,6 @@ class PostDetail(View):
         )
 
     @method_decorator(login_required)
-
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -70,7 +69,6 @@ class PostDetail(View):
         )
 
 class PostLike(View):
-
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
 
@@ -82,80 +80,16 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-@login_required
-def create_blog_post(request):
-   if request.method == 'POST':
-       form = PostForm(request.POST)
-       if form.is_valid():
-           new_post = form.save(commit=False)
-           new_post.author = request.user
-           new_post.save()
-           messages.success(request, 'Your post has been created!')
-           return redirect('blog:index')
-   else:
-       form = PostForm()
-   return render(request, 'blog/create_post.html', {'form': form})
-        
-
-def blog_index(request):
-    posts = Post.objects.all().order_by('-created_on')
-    context = {
-        "posts": posts,
-    }
-    return render(request, "blog_index.html", context)
-
-def blog_category(request, category):
-    posts = Post.objects.filter(
-        categories__name__contains=category
-    ).order_by(
-        '-created_on'
-    )
-    context = {
-        "category": category,
-        "posts": posts
-    }
-    return render(request, "blog_category.html", context)
-
-def blog_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-
-    form = CommentForm()
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = Comment(
-                author=form.cleaned_data["author"],
-                body=form.cleaned_data["body"],
-                post=post
-            )
-            comment.save()
-    comments = Comment.objects.filter(post=post)
-    context = {
-        "post": post,
-        "comments": comments,
-        "form": form,
-    }
-
-    return render(request, "blog_detail.html", context)
-
-def blog_post(request):
-    post_form = PostForm()
-    if request.method == 'POST':
-        post_form = PostForm(request.POST)
-        if post_form.is_valid():
-            post = Post(
-                title=post_form.cleaned_data["title"],
-                author=post_form.cleaned_data["author"],
-                body=post_form.cleaned_data["body"],
-            )
-            post.save()
-
-    context = {
-        "post_form": post_form,
-    }
-
-    args = {}
-    args['post_form'] = post_form
-
-    return render(request, "blog_post.html", args)
-    
+#@login_required
+#def create_blog_post(request):
+#   if request.method == 'POST':
+#       form = PostForm(request.POST)
+#       if form.is_valid():
+#           new_post = form.save(commit=False)
+#           new_post.author = request.user
+#           new_post.save()
+#           messages.success(request, 'Your post has been created!')
+#           return redirect('blog:index')
+#   else:
+#       form = PostForm()
+#   return render(request, 'blog/create_post.html', {'form': form})
