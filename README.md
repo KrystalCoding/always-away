@@ -138,10 +138,12 @@ Always Away is a community blog site, written with the intention of sharing expe
 
 ## <span id="media"></span>Media
 
-* [Sound effects](https://pixabay.com/sound-effects/search/star%20wars/)
-* [Pixabay](https://pixabay.com/)
-* [Pexels](https://www.pexels.com/)
-* [Kindpng](https://www.kindpng.com/)
+* [_Sound effects_](https://pixabay.com/sound-effects/search/star%20wars/)
+* [_Pixabay_](https://pixabay.com/)
+* [_Pexels_](https://www.pexels.com/)
+    - Photo by Alex Azabache
+    - Photos by cottonbro studio
+* [_Kindpng_](https://www.kindpng.com/)
 
 ## <span id="team"></span>Team Members
 
