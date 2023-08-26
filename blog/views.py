@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .models import Post, Comment
-from .forms import CommentForm, PostForm
+from .models import Post, Comment, Photo
+from .forms import CommentForm, PostForm, PhotoUploadForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -79,6 +79,23 @@ class PostLike(View):
         
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+@login_required
+def gallery_view(request):
+    photos = Photo.objects.all()  # Query your photos from the database
+    context = {'photos': photos}
+    return render(request, 'gallery.html', context)
+
+@login_required
+def upload_photo_view(request):
+    if request.method == 'POST':
+        form = PhotoUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('gallery')  # Redirect to the gallery after successful upload
+    else:
+        form = PhotoUploadForm()
+    context = {'form': form}
+    return render(request, 'upload_photo.html', context)
 
 #@login_required
 #def create_blog_post(request):

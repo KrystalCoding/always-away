@@ -18,48 +18,52 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
         </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    STATICFILES_DIRS = [os.path.join(BASE_DIR,‘static’)]
-    STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-light bg-dark justify-content-between" id="mainNav">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <span class="brand-text mb-0 h1">Always Away</span>
-            </a>
-            <ul class="nav nav-tabs" id="myTabs">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                </li>
+<nav class="navbar navbar-light bg-dark justify-content-between" id="mainNav">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <span class="brand-text mb-0 h1">Always Away</span>
+        </a>
+        <ul class="nav nav-tabs" id="myTabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+            </li>
 
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'upload_photo' %}">Upload Photo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            </li>
 
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                </li>
-                {% endif %}
-            </ul>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-        <div class="mx-auto">
-            <span class="navbar-text text-muted">
-                Adventures of the modern nomad.
-            </span>
-        </div>
-    </nav>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="mx-auto">
+        <span class="navbar-text text-muted">
+            Adventures of the modern nomad.
+        </span>
+    </div>
+</nav>
 
 
     <div class="container">

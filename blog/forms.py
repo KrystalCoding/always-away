@@ -1,5 +1,6 @@
 from .models import Comment
 from .models import Post
+from .models import Photo
 from django import forms
 from . import models
 
@@ -45,3 +46,8 @@ class CommentForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         if user:
             self.fields['author'].initial = user.username
+
+class PhotoUploadForm(forms.ModelForm):
+    class Meta:
+        model = Photo
+        fields = ('image', 'caption')

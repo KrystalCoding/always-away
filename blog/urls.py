@@ -6,5 +6,7 @@ urlpatterns = [
 # path('create/', views.create_blog_post, name='create_blog_post'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
+    path('gallery/', views.gallery_view, name='gallery'),
+    path('upload/', views.upload_photo_view, name='upload_photo'),
 ]
  
