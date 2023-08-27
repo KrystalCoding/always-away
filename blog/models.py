@@ -58,7 +58,7 @@ class Category(models.Model):
         return self.title
 
 class Photo(models.Model):
-    image = models.ImageField(upload_to='gallery/')
+    image = models.ImageField(upload_to='images/')
     caption = models.CharField(max_length=200, blank=True)
     uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     uploaded_on = models.DateTimeField(auto_now_add=True)
