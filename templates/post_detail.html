@@ -7,20 +7,19 @@
         <div class="row g-0">
             <div class="col-md-8 card mb-4  mt-3 text-center">
                 <div class="card-body">
-                  <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
-                  <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-                  <p class="card-text ">{{ object.content | safe }}</p>
+                    <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+                    <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                    <p class="card-text ">{{ object.content | safe }}</p>
                 </div>
             </div>
             <div class="d-none d-md-block col-md-8 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="https://www.example.com/path/to/your/placeholder/image.jpg" width="100%">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
-        </div>    
+        </div>
     </div>
 </div>
 
@@ -28,8 +27,6 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
@@ -82,30 +79,30 @@
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Comments:</h3>
             <div class="card-body">
-                <!-- We want a for loop inside the tags to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                         {{ comment.name }}
                         <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
-                    <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
                 </div>
-                <!-- Our for loop ends here -->
+                {% if user.is_authenticated and user.username == comment.name %}
+                <div class="comment-actions">
+                    <a href="{% url 'edit_comment' post.slug comment.id %}" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="{% url 'delete_comment' post.slug comment.id %}" class="btn btn-sm btn-danger">Delete</a>
+                </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                <!-- For later -->
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
-                    Your comment has been successfully submitted and is awaiting approval
+                    Your comment has been successfully submitted.
                 </div>
                 {% else %}
 

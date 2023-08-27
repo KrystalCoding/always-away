@@ -2,13 +2,15 @@
 {% block content %}
 
 <div class="container">
+    <h1>Photo Gallery</h1>
     <div class="row">
         {% for photo in photos %}
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4">
             <div class="card">
-                <img src="{{ photo.image.url }}" class="card-img-top" alt="Photo">
+                <img src="{{ photo.image.url }}" class="card-img-top" alt="{{ photo.caption }}">
                 <div class="card-body">
-                    <p class="card-text">{{ photo.caption }}</p>
+                    <h5 class="card-title">{{ photo.caption }}</h5>
+                    <p class="card-text">{{ photo.description }}</p>
                 </div>
             </div>
         </div>
@@ -16,4 +18,4 @@
     </div>
 </div>
 
-{% endblock content %}
+{% endblock %}

@@ -8,5 +8,8 @@ urlpatterns = [
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('gallery/', views.gallery_view, name='gallery'),
     path('upload/', views.upload_photo_view, name='upload_photo'),
+    path('<slug:slug>/edit_comment/<int:comment_id>/', views.edit_comment, name='edit_comment'),
+    path('<slug:slug>/delete_comment/<int:comment_id>/', views.delete_comment, name='delete_comment'),
+# path('', views.index, name = 'home') supposed to connect the photos, but how???
 ]
  

@@ -52,9 +52,13 @@ class PostDetail(View):
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post
+            comment.approved = True
             comment.save()
+            commented = True
+            messages.success(request, "Comment posted successfully!")
         else:
-            comment_form = CommentForm()
+            commented = False
+            messages.error(request, "Failed to post comment. Please check your input.")
         
         return render(
             request,
@@ -67,6 +71,28 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+    
+@login_required
+def edit_comment(request, slug, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, post__slug=slug, approved=True)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Comment updated successfully!")
+            return redirect('post_detail', slug=slug)
+    else:
+        form = CommentForm(instance=comment)
+    return render(request, 'edit_comment.html', {'form': form, 'comment': comment})
+
+@login_required
+def delete_comment(request, slug, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, post__slug=slug, approved=True)
+    if request.method == 'POST':
+        comment.delete()
+        messages.success(request, "Comment deleted successfully!")
+        return redirect('post_detail', slug=slug)
+    return render(request, 'delete_comment.html', {'comment': comment})
 
 class PostLike(View):
     def post(self, request, slug):
@@ -81,7 +107,7 @@ class PostLike(View):
 
 @login_required
 def gallery_view(request):
-    photos = Photo.objects.all()  # Query your photos from the database
+    photos = Photo.objects.all()
     context = {'photos': photos}
     return render(request, 'gallery.html', context)
 
@@ -96,6 +122,13 @@ def upload_photo_view(request):
         form = PhotoUploadForm()
     context = {'form': form}
     return render(request, 'upload_photo.html', context)
+
+def index(request):
+    photos = Photo.objects.all()
+    context = {
+        'photos': photos
+    }
+    return render(request, 'index.html', context)
 
 #@login_required
 #def create_blog_post(request):
