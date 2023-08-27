@@ -58,12 +58,10 @@ class Category(models.Model):
         return self.title
 
 class Photo(models.Model):
-    author = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default=1)
-    description = models.TextField(blank=True, null=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='photos/')
-    caption = models.CharField(max_length=50)
-    comment_count = models.IntegerField(default=0)
+    image = models.ImageField(upload_to='gallery/')
+    caption = models.CharField(max_length=200, blank=True)
+    uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    uploaded_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.caption
+        return self.caption or 'Photo'

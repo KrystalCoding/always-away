@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <h2>Delete Photo</h2>
+    <p>Are you sure you want to delete the following photo?</p>
+    <div class="card">
+        <img src="{{ photo.image.url }}" class="card-img-top" alt="{{ photo.caption }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ photo.caption }}</h5>
+            <p class="card-text">{{ photo.description }}</p>
+        </div>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete Photo</button>
+        <a href="{% url 'gallery' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+{% endblock content %}

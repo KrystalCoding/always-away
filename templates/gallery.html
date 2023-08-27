@@ -10,12 +10,15 @@
                 <img src="{{ photo.image.url }}" class="card-img-top" alt="{{ photo.caption }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ photo.caption }}</h5>
-                    <p class="card-text">{{ photo.description }}</p>
+                    <a href="{% url 'edit_photo' photo.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete_photo' photo.id %}" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+    <a href="{% url 'upload_photo' %}" class="btn btn-success mt-3">Upload New Photo</a>
 </div>
 
 {% endblock %}
+

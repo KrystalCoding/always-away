@@ -1,6 +1,4 @@
-from .models import Comment
-from .models import Post
-from .models import Photo
+from .models import Comment, Post, Photo
 from django import forms
 from . import models
 
@@ -51,3 +49,8 @@ class PhotoUploadForm(forms.ModelForm):
     class Meta:
         model = Photo
         fields = ('image', 'caption')
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['image'].widget.attrs.update({'class': 'form-control-file'})
+        self.fields['caption'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Caption'})

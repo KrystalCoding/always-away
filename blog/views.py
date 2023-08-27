@@ -116,19 +116,41 @@ def upload_photo_view(request):
     if request.method == 'POST':
         form = PhotoUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('gallery')  # Redirect to the gallery after successful upload
+            new_photo = form.save(commit=False)
+            new_photo.uploaded_by = request.user
+            new_photo.save()
+            messages.success(request, "Photo uploaded successfully!")
+            return redirect('gallery')
     else:
         form = PhotoUploadForm()
     context = {'form': form}
     return render(request, 'upload_photo.html', context)
 
-def index(request):
-    photos = Photo.objects.all()
-    context = {
-        'photos': photos
-    }
-    return render(request, 'index.html', context)
+@login_required
+def edit_photo_view(request, photo_id):
+    photo = get_object_or_404(Photo, id=photo_id, uploaded_by=request.user)
+    if request.method == 'POST':
+        form = PhotoUploadForm(request.POST, request.FILES, instance=photo)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Photo updated successfully!")
+            return redirect('gallery')
+    else:
+        form = PhotoUploadForm(instance=photo)
+    context = {'form': form, 'photo': photo}
+    return render(request, 'edit_photo.html', context)
+
+@login_required
+def delete_photo_view(request, photo_id):
+    photo = get_object_or_404(Photo, id=photo_id, uploaded_by=request.user)
+    if request.method == 'POST':
+        photo.delete()
+        messages.success(request, "Photo deleted successfully!")
+        return redirect('gallery')
+    context = {'photo': photo}
+    return render(request, 'delete_photo.html', context)
+
+
 
 #@login_required
 #def create_blog_post(request):
