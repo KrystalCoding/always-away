@@ -51,7 +51,7 @@ class PostDetail(View):
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
-            comment.post = post
+            comment.content_object = post
             comment.approved = True
             comment.save()
             commented = True
@@ -106,6 +106,34 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 @login_required
+def photo_like_view(request, photo_id):
+    photo = get_object_or_404(Photo, id=photo_id)
+
+    if photo.likes.filter(id=request.user.id).exists():
+        photo.likes.remove(request.user)
+    else:
+        photo.likes.add(request.user)
+    
+    return redirect('gallery')
+
+@login_required
+def add_photo_comment(request, photo_id):
+    photo = get_object_or_404(Photo, id=photo_id)
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.content_object = photo
+            comment.name = request.user.username
+            comment.save()
+            messages.success(request, "Comment posted successfully!")
+            return redirect('gallery')
+
+    comment_form = CommentForm()
+    return render(request, 'add_photo_comment.html', {'photo': photo, 'comment_form': comment_form})
+
+
 def gallery_view(request):
     photos = Photo.objects.all()
     context = {'photos': photos}
@@ -149,8 +177,6 @@ def delete_photo_view(request, photo_id):
         return redirect('gallery')
     context = {'photo': photo}
     return render(request, 'delete_photo.html', context)
-
-
 
 #@login_required
 #def create_blog_post(request):

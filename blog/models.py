@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -30,8 +32,9 @@ class Post(models.Model):
         return self.likes.count()
 
 class Comment(models.Model):
-
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True,)
+    object_id = models.PositiveIntegerField(null=True)
+    content_object = GenericForeignKey('content_type', 'object_id')
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
@@ -62,6 +65,7 @@ class Photo(models.Model):
     caption = models.CharField(max_length=200, blank=True)
     uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     uploaded_on = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(User, related_name='photo_likes', blank=True)
 
     def __str__(self):
         return self.caption or 'Photo'

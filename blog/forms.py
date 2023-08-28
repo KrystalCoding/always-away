@@ -37,7 +37,7 @@ class CommentForm(forms.ModelForm):
     )
     class Meta:
         model = Comment
-        fields = ('body',)
+        fields = ('name', 'email', 'body',)
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)  # Get the user from kwargs

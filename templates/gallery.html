@@ -12,8 +12,52 @@
                 <img src="{{ photo.image.url }}" class="card-img-top" alt="{{ photo.caption }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ photo.caption }}</h5>
-                    <a href="{% url 'edit_photo' photo.id %}" class="btn btn-primary">Edit</a>
-                    <a href="{% url 'delete_photo' photo.id %}" class="btn btn-danger">Delete</a>
+                    <strong>
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'photo_like' photo.id %}" method="POST">
+                            {% csrf_token %}
+                            {% if photo_liked %}
+                            <button type="submit" name="photo_id" value="{{ photo.id }}" class="btn-like">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            {% else %}
+                            <button type="submit" name="photo_id" value="{{ photo.id }}" class="btn-like">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            {% endif %}
+                        </form>
+                        {% else %}
+                        <span class="text-secondary"><i class="far fa-heart"></i></span>
+                        {% endif %}
+                        <span class="text-secondary">{{ photo.number_of_likes }}</span>
+                    </strong>
+                </div>
+                <div class="card-footer">
+                    <h6>Comments:</h6>
+                    {% for comment in photo.comments.all %}
+                    <div class="comments">
+                        <p class="font-weight-bold">
+                            {{ comment.name }}
+                            <span class=" text-muted font-weight-normal">
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        {{ comment.body | linebreaks }}
+                    </div>
+                    {% if user.is_authenticated and user.username == comment.name %}
+                    <div class="comment-actions">
+                        <a href="{% url 'edit_photo_comment' photo.id comment.id %}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{% url 'delete_photo_comment' photo.id comment.id %}" class="btn btn-sm btn-danger">Delete</a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'add_photo_comment' photo.id %}">
+                        {% csrf_token %}
+                        {{ comment_form | crispy }}
+                        <button type="submit" class="btn btn-success mt-3">Submit Comment</button>
+                    </form>                    
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -22,5 +66,5 @@
     <a href="{% url 'upload_photo' %}" class="btn btn-success mt-3">Upload New Photo</a>
 </div>
 
-{% endblock %}
 
+{% endblock %}
