@@ -33,7 +33,7 @@ class PostDetail(View):
             request,
             "post_detail.html",
             {
-                "post": post,
+                "object": post,  # Use "object" instead of "post"
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
@@ -45,7 +45,8 @@ class PostDetail(View):
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('-created_on')
+        comment_ct = ContentType.objects.get_for_model(Post)  # Define comment_ct here
+        comments = Comment.objects.filter(content_type=comment_ct, object_id=post.id, approved=True).order_by('-created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -69,13 +70,14 @@ class PostDetail(View):
             request,
             "post_detail.html",
             {
-                "post": post,
+                "object": post,
                 "comments": comments,
-                "commented": True,
+                "commented": commented,
                 "liked": liked,
                 "comment_form": CommentForm()
             },
         )
+
     
 @login_required
 def edit_comment(request, slug, comment_id):
@@ -110,16 +112,21 @@ class PostLike(View):
         
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+class PhotoLike(View):
+    @staticmethod
+    def post(request, photo_id):
+        photo = get_object_or_404(Photo, id=photo_id)
+
+        if photo.likes.filter(id=request.user.id).exists():
+            photo.likes.remove(request.user)
+        else:
+            photo.likes.add(request.user)
+        
+        return HttpResponseRedirect(reverse('photo_detail', args=[photo_id]))
+
 @login_required
 def photo_like_view(request, photo_id):
-    photo = get_object_or_404(Photo, id=photo_id)
-
-    if photo.likes.filter(id=request.user.id).exists():
-        photo.likes.remove(request.user)
-    else:
-        photo.likes.add(request.user)
-    
-    return redirect('gallery')
+    return PhotoLike.as_view()(request, photo_id=photo_id)
 
 @login_required
 def add_photo_comment(request, photo_id):
@@ -131,6 +138,7 @@ def add_photo_comment(request, photo_id):
             comment = comment_form.save(commit=False)
             comment.content_object = photo
             comment.name = request.user.username
+            comment.approved = True
             comment.save()
             messages.success(request, "Comment posted successfully!")
             return redirect('gallery')

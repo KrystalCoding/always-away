@@ -4,7 +4,6 @@
 {% load cloudinary %}
 
 <div class="container">
-    <h1>Photo Details</h1>
     <div class="row">
         <div class="col-md-8">
             <div class="card mb-4">
@@ -13,7 +12,7 @@
                     <img src="{{ photo.image.url }}" class="card-img-top" alt="{{ photo.caption }}">
                 </div>
                 <div class="card-footer">
-                    <button id="like-button" class="btn btn-primary">Like</button>
+                    <button id="like-button" class="btn btn-primary" data-photo-id="{{ photo.id }}">Like</button>
                     <span id="likes-count">{{ photo.likes.count }}</span> likes
                 </div>
             </div>
@@ -34,4 +33,35 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const likeButton = document.getElementById("like-button");
+        const likesCount = document.getElementById("likes-count");
+
+        likeButton.addEventListener("click", function () {
+            const photoId = likeButton.getAttribute("data-photo-id");
+
+            fetch(`/photo/like/${photoId}`, {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": getCookie("csrftoken"),
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                likesCount.textContent = data.likes_count;
+            })
+            .catch(error => console.error(error));
+        });
+
+        function getCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+        }
+    });
+</script>
+
 {% endblock %}
+
