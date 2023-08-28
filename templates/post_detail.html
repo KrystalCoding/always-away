@@ -75,14 +75,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="col-md-8 card mb-4 mt-3">
             <h3>Comments:</h3>
             <div class="card-body">
+                <!-- For posts -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
                         {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
+                        <span class="text-muted font-weight-normal">
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
@@ -97,19 +98,17 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
+        
+        <div class="col-md-4 card mb-4 mt-3">
             <div class="card-body">
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
                     Your comment has been successfully submitted.
                 </div>
                 {% else %}
-
                 {% if user.is_authenticated %}
-
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-
                 {% if comment_form.errors %}
                 <div class="alert alert-danger" role="alert">
                     There were some errors in your comment:
@@ -122,27 +121,22 @@
                     </ul>
                 </div>
                 {% endif %}
-
                 <script>
                     setTimeout(function () {
                         $('.alert').fadeOut('slow');
                     }, 2000);
                 </script>
-
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
-
                 {% endif %}
                 {% endif %}
-
             </div>
         </div>
     </div>
 </div>
-
 {% if messages %}
 {% for message in messages %}
 <div class="alert {{ message.tags }} role=" alert">

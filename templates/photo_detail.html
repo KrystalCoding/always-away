@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load cloudinary %}
+
+<div class="container">
+    <h1>Photo Details</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ photo.caption }}</h5>
+                    <img src="{{ photo.image.url }}" class="card-img-top" alt="{{ photo.caption }}">
+                </div>
+                <div class="card-footer">
+                    <button id="like-button" class="btn btn-primary">Like</button>
+                    <span id="likes-count">{{ photo.likes.count }}</span> likes
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Comments</h2>
+            {% for comment in comments %}
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ comment.name }}</h6>
+                        <p class="card-text">{{ comment.body }}</p>
+                        <p class="card-subtitle text-muted">{{ comment.created_on }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

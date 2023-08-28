@@ -6,6 +6,7 @@ urlpatterns = [
 # path('create/', views.create_blog_post, name='create_blog_post'),
     path('gallery/', views.gallery_view, name='gallery'),
     path('upload_photo/', views.upload_photo_view, name='upload_photo'),
+    path('photo/<int:photo_id>/', views.photo_detail_view, name='photo_detail'),
     path('edit_photo/<int:photo_id>/', views.edit_photo_view, name='edit_photo'),
     path('delete_photo/<int:photo_id>/', views.delete_photo_view, name='delete_photo'),
     path('like_photo/<int:photo_id>/', views.photo_like_view, name='photo_like'),

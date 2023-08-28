@@ -6,6 +6,8 @@ from .models import Post, Comment, Photo
 from .forms import CommentForm, PostForm, PhotoUploadForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.contenttypes.models import ContentType
+
 
 
 class PostList(generic.ListView):
@@ -19,7 +21,10 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('-created_on')
+        
+        comment_ct = ContentType.objects.get_for_model(Post)
+        comments = Comment.objects.filter(content_type=comment_ct, object_id=post.id, approved=True).order_by('-created_on')
+
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -133,6 +138,12 @@ def add_photo_comment(request, photo_id):
     comment_form = CommentForm()
     return render(request, 'add_photo_comment.html', {'photo': photo, 'comment_form': comment_form})
 
+def photo_detail_view(request, photo_id):
+    comment_ct = ContentType.objects.get_for_model(Photo)
+    comments = Comment.objects.filter(content_type=comment_ct, object_id=photo_id, approved=True).order_by('-created_on')
+    photo = get_object_or_404(Photo, id=photo_id)
+    ordered_comments = comments.order_by('-created_on')
+    return render(request, 'photo_detail.html', {'photo': photo, 'comments': ordered_comments})
 
 def gallery_view(request):
     photos = Photo.objects.all()

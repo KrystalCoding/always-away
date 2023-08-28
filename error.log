@@ -817,3 +817,829 @@ LINE 1: INSERT INTO "blog_comment" ("content_type_id", "object_id", ...
                                     ^
 
 "POST /add_photo_comment/4/ HTTP/1.1" 500 162330
+Internal Server Error: /photo/4/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 138, in photo_detail_view
+    comments = photo.comments.filter(approved=True).order_by('-created_on')
+               ^^^^^^^^^^^^^^
+AttributeError: 'Photo' object has no attribute 'comments'
+Internal Server Error: /photo/4/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 138, in photo_detail_view
+    comments = photo.comments.filter(approved=True).order_by('-created_on')
+               ^^^^^^^^^^^^^^
+AttributeError: 'Photo' object has no attribute 'comments'
+"GET /photo/4/ HTTP/1.1" 500 79314
+Internal Server Error: /photo-testing/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 22, in get
+    comments = post.comments.filter(approved=True).order_by('-created_on')
+               ^^^^^^^^^^^^^
+AttributeError: 'Post' object has no attribute 'comments'
+"GET /photo-testing/ HTTP/1.1" 500 89696
+Internal Server Error: /photo-testing/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 23, in get
+    comment_ct = ContentType.objects.get_for_model(Post)
+                 ^^^^^^^^^^^
+NameError: name 'ContentType' is not defined
+"GET /photo-testing/ HTTP/1.1" 500 89619
+Internal Server Error: /photo/4/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 140, in photo_detail_view
+    comment_ct = ContentType.objects.get_for_model(Photo)
+                 ^^^^^^^^^^^
+NameError: name 'ContentType' is not defined
+Internal Server Error: /photo/4/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 140, in photo_detail_view
+    comment_ct = ContentType.objects.get_for_model(Photo)
+                 ^^^^^^^^^^^
+NameError: name 'ContentType' is not defined
+"GET /photo/4/ HTTP/1.1" 500 79076
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 148, in gallery_view
+    return render(request, 'gallery.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 817, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 816, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(approved=True).order_by('-created_on')' from 'photo.comment_set.filter(approved=True).order_by('-created_on')'
+"GET /gallery/ HTTP/1.1" 500 212862
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 148, in gallery_view
+    return render(request, 'gallery.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 817, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 816, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(approved=True).order_by('-created_on')' from 'photo.comment_set.filter(approved=True).order_by('-created_on')'
+"GET /gallery/ HTTP/1.1" 500 212725
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 148, in gallery_view
+    return render(request, 'gallery.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 817, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 816, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(approved=True).order_by('-created_on')' from 'photo.comments.filter(approved=True).order_by('-created_on')'
+"GET /gallery/ HTTP/1.1" 500 212820
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 148, in gallery_view
+    return render(request, 'gallery.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 817, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 816, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(approved=True).order_by('-created_on')' from 'photo.comments.filter(approved=True).order_by('-created_on')'
+"GET /gallery/ HTTP/1.1" 500 212683
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 148, in gallery_view
+    return render(request, 'gallery.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 817, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 816, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(approved=True).order_by('-created_on')' from 'photo.comments.filter(approved=True).order_by('-created_on')'
+"GET /gallery/ HTTP/1.1" 500 212711
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 148, in gallery_view
+    return render(request, 'gallery.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 817, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 816, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(approved=True).order_by('-created_on')' from 'photo.comments.filter(approved=True).order_by('-created_on')'
+"GET /gallery/ HTTP/1.1" 500 212711
+Internal Server Error: /photo/4/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 140, in photo_detail_view
+    comment_ct = ContentType.objects.get_for_model(Photo)
+                 ^^^^^^^^^^^
+NameError: name 'ContentType' is not defined
+Internal Server Error: /photo/5/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 140, in photo_detail_view
+    comment_ct = ContentType.objects.get_for_model(Photo)
+                 ^^^^^^^^^^^
+NameError: name 'ContentType' is not defined
+"GET /photo/5/ HTTP/1.1" 500 79076
+Internal Server Error: /photo/6/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 140, in photo_detail_view
+    comment_ct = ContentType.objects.get_for_model(Photo)
+                 ^^^^^^^^^^^
+NameError: name 'ContentType' is not defined
+"GET /photo/6/ HTTP/1.1" 500 79076
+Internal Server Error: /photo/4/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 140, in photo_detail_view
+    comment_ct = ContentType.objects.get_for_model(Photo)
+                 ^^^^^^^^^^^
+NameError: name 'ContentType' is not defined
+"GET /photo/4/ HTTP/1.1" 500 79076
+Internal Server Error: /photo-testing/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 32, in get
+    return render(
+           ^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 816, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(approved=True).order_by('-created_on')' from 'post.comments.filter(approved=True).order_by('-created_on')'
+"GET /photo-testing/ HTTP/1.1" 500 208897
+Internal Server Error: /photo-testing/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 32, in get
+    return render(
+           ^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 816, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(approved=True).order_by('-created_on')' from 'post.comments.filter(approved=True).order_by('-created_on')'
+"GET /photo-testing/ HTTP/1.1" 500 208897
+Internal Server Error: /photo-testing/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/always-away/blog/views.py", line 32, in get
+    return render(
+           ^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/defaulttags.py", line 816, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/template/base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(approved=True).order_by('-created_on')' from 'post.comments.filter(approved=True).order_by('-created_on')'
+"GET /photo-testing/ HTTP/1.1" 500 208897
