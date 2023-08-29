@@ -99,7 +99,7 @@ def edit_comment(request, slug, comment_id):
     if isinstance(comment.content_object, Photo):
         template_name = 'edit_photo_comment.html'
 
-    return render(request, 'edit_comment.html', {'form': form, 'comment': comment})
+    return render(request, template_name, {'form': form, 'comment': comment})
 
 
 @login_required
@@ -118,7 +118,7 @@ def delete_comment(request, slug, comment_id):
     if isinstance(comment.content_object, Photo):
         template_name = 'delete_photo_comment.html'
 
-    return render(request, 'delete_comment.html', {'comment': comment})
+    return render(request, template_name, {'comment': comment})
 
 
 
