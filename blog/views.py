@@ -81,7 +81,11 @@ class PostDetail(View):
     
 @login_required
 def edit_comment(request, slug, comment_id):
-    comment = get_object_or_404(Comment, id=comment_id, post__slug=slug, approved=True)
+    comment = get_object_or_404(Comment, id=comment_id, approved=True)
+
+    if comment.content_object.slug != slug:
+        raise Http404("Comment does not belong to the specified post.")
+
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
@@ -90,16 +94,33 @@ def edit_comment(request, slug, comment_id):
             return redirect('post_detail', slug=slug)
     else:
         form = CommentForm(instance=comment)
+
+    template_name = 'edit_blog_comment.html'
+    if isinstance(comment.content_object, Photo):
+        template_name = 'edit_photo_comment.html'
+
     return render(request, 'edit_comment.html', {'form': form, 'comment': comment})
+
 
 @login_required
 def delete_comment(request, slug, comment_id):
-    comment = get_object_or_404(Comment, id=comment_id, post__slug=slug, approved=True)
+    comment = get_object_or_404(Comment, id=comment_id, approved=True)
+
+    if comment.content_object.slug != slug:
+        raise Http404("Comment does not belong to the specified post.")
+
     if request.method == 'POST':
         comment.delete()
         messages.success(request, "Comment deleted successfully!")
         return redirect('post_detail', slug=slug)
+
+    template_name = 'delete_blog_comment.html'
+    if isinstance(comment.content_object, Photo):
+        template_name = 'delete_photo_comment.html'
+
     return render(request, 'delete_comment.html', {'comment': comment})
+
+
 
 class PostLike(View):
     def post(self, request, slug):

@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <h2>Delete Comment</h2>
+    <p>Are you sure you want to delete the following comment?</p>
+    <p><strong>{{ comment.body }}</strong></p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete Comment</button>
+        <a href="{% url 'photo_detail' slug=comment.content_object.slug %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+{% endblock content %}

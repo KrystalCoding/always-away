@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 
 {% load crispy_forms_tags %}
 
@@ -9,8 +10,9 @@
     <form method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Delete Comment</button>
-        <a href="{% url 'post_detail' comment.post.slug %}" class="btn btn-secondary">Cancel</a>
+        <a href="{% url 'post_detail' slug=comment.content_object.slug %}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 
 {% endblock content %}
+
