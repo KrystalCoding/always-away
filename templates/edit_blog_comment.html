@@ -9,6 +9,10 @@
         {{ form | crispy }}
         <button type="submit" class="btn btn-primary">Update Comment</button>
     </form>
+    <div class="mt-4">
+        <a href="{% url 'delete_blog_comment' slug=comment.content_object.slug comment_id=comment.id %}" class="btn btn-secondary">Delete</a>
+        <a href="{% url 'post_detail' slug=comment.content_object.slug %}" class="btn btn-secondary">Cancel</a>
+    </div>
 </div>
 
 {% endblock content %}

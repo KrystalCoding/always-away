@@ -18,13 +18,21 @@
         <div class="col-md-8">
             <h2>Comments</h2>
             {% for comment in comments %}
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h6 class="card-title">{{ comment.name }}</h6>
-                        <p class="card-text">{{ comment.body }}</p>
-                        <p class="card-subtitle text-muted">{{ comment.created_on }}</p>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h6 class="card-title">{{ comment.name }}</h6>
+                    <p class="card-text">{{ comment.body }}</p>
+                    <p class="card-subtitle text-muted">{{ comment.created_on }}</p>
+                    {% if user.is_authenticated and user.username == comment.name %}
+                    <div class="comment-actions">
+                        <a href="{% url 'edit_photo_comment' pk=photo.pk comment_id=comment.id %}"
+                            class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{% url 'delete_photo_comment' pk=photo.pk comment_id=comment.id %}"
+                            class="btn btn-sm btn-danger">Delete</a>
                     </div>
+                    {% endif %}
                 </div>
+            </div>
             {% endfor %}
         </div>
     </div>
@@ -34,21 +42,20 @@
     document.addEventListener("DOMContentLoaded", function () {
         const likeButton = document.getElementById("like-button");
         const likesCount = document.getElementById("likes-count");
+        const pk = likeButton.getAttribute("data-photo-pk");
 
         likeButton.addEventListener("click", function () {
-            const photoId = likeButton.getAttribute("data-photo-id");
-
-            fetch(`/photo/like/${photoId}`, {
+            fetch(`/like_photo/${pk}/`, {
                 method: "POST",
                 headers: {
                     "X-CSRFToken": getCookie("csrftoken"),
                 },
             })
-            .then(response => response.json())
-            .then(data => {
-                likesCount.textContent = data.likes_count;
-            })
-            .catch(error => console.error(error));
+                .then(response => response.json())
+                .then(data => {
+                    likesCount.textContent = data.likes_count;
+                })
+                .catch(error => console.error(error));
         });
 
         function getCookie(name) {
@@ -60,4 +67,3 @@
 </script>
 
 {% endblock %}
-

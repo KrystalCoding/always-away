@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <form method="post">
+            <form method="post" action="{% url 'add_photo_comment' pk=photo.pk %}">
                 {% csrf_token %}
                 {{ comment_form | crispy }}
                 <button type="submit" class="btn btn-success mt-3">Submit Comment</button>

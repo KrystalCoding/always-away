@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.contrib import messages
 from .models import Post, Comment, Photo
 from .forms import CommentForm, PostForm, PhotoUploadForm
@@ -80,7 +80,7 @@ class PostDetail(View):
 
     
 @login_required
-def edit_comment(request, slug, comment_id):
+def edit_blog_comment(request, slug, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, approved=True)
 
     if comment.content_object.slug != slug:
@@ -95,15 +95,12 @@ def edit_comment(request, slug, comment_id):
     else:
         form = CommentForm(instance=comment)
 
-    template_name = 'edit_blog_comment.html'
-    if isinstance(comment.content_object, Photo):
-        template_name = 'edit_photo_comment.html'
+    return render(request, 'edit_blog_comment.html', {'form': form, 'comment': comment})
 
-    return render(request, template_name, {'form': form, 'comment': comment})
 
 
 @login_required
-def delete_comment(request, slug, comment_id):
+def delete_blog_comment(request, slug, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, approved=True)
 
     if comment.content_object.slug != slug:
@@ -114,11 +111,42 @@ def delete_comment(request, slug, comment_id):
         messages.success(request, "Comment deleted successfully!")
         return redirect('post_detail', slug=slug)
 
-    template_name = 'delete_blog_comment.html'
-    if isinstance(comment.content_object, Photo):
-        template_name = 'delete_photo_comment.html'
+    return render(request, 'delete_blog_comment.html', {'comment': comment})
 
-    return render(request, template_name, {'comment': comment})
+
+@login_required
+def edit_photo_comment(request, pk, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, approved=True)
+
+    if comment.content_object.pk != pk:
+        raise Http404("Comment does not belong to the specified post.")
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Comment updated successfully!")
+            return redirect('photo_detail', pk=pk)
+    else:
+        form = CommentForm(instance=comment)
+
+    return render(request, 'edit_photo_comment.html', {'form': form, 'comment': comment})
+
+
+
+@login_required
+def delete_photo_comment(request, pk, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, approved=True)
+
+    if comment.content_object.pk != pk:
+        raise Http404("Comment does not belong to the specified post.")
+
+    if request.method == 'POST':
+        comment.delete()
+        messages.success(request, "Comment deleted successfully!")
+        return redirect('photo_detail', pk=pk)
+
+    return render(request, 'delete_photo_comment.html', {'comment': comment})
 
 
 
@@ -135,23 +163,25 @@ class PostLike(View):
 
 class PhotoLike(View):
     @staticmethod
-    def post(request, photo_id):
-        photo = get_object_or_404(Photo, id=photo_id)
+    def post(request, pk):
+        photo = get_object_or_404(Photo, pk=pk)
 
         if photo.likes.filter(id=request.user.id).exists():
             photo.likes.remove(request.user)
         else:
             photo.likes.add(request.user)
         
-        return HttpResponseRedirect(reverse('photo_detail', args=[photo_id]))
+        return HttpResponseRedirect(reverse('photo_detail', args=[pk]))
+
 
 @login_required
-def photo_like_view(request, photo_id):
-    return PhotoLike.as_view()(request, photo_id=photo_id)
+def photo_like_view(request, pk):
+    return PhotoLike.as_view()(request, pk=pk)
+
 
 @login_required
-def add_photo_comment(request, photo_id):
-    photo = get_object_or_404(Photo, id=photo_id)
+def add_photo_comment(request, pk):
+    photo = get_object_or_404(Photo, pk=pk)
 
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
@@ -167,12 +197,14 @@ def add_photo_comment(request, photo_id):
     comment_form = CommentForm()
     return render(request, 'add_photo_comment.html', {'photo': photo, 'comment_form': comment_form})
 
-def photo_detail_view(request, photo_id):
+
+def photo_detail_view(request, pk):
     comment_ct = ContentType.objects.get_for_model(Photo)
-    comments = Comment.objects.filter(content_type=comment_ct, object_id=photo_id, approved=True).order_by('-created_on')
-    photo = get_object_or_404(Photo, id=photo_id)
+    comments = Comment.objects.filter(content_type=comment_ct, object_id=pk, approved=True).order_by('-created_on')
+    photo = get_object_or_404(Photo, pk=pk)
     ordered_comments = comments.order_by('-created_on')
     return render(request, 'photo_detail.html', {'photo': photo, 'comments': ordered_comments})
+
 
 def gallery_view(request):
     photos = Photo.objects.all()
@@ -195,8 +227,8 @@ def upload_photo_view(request):
     return render(request, 'upload_photo.html', context)
 
 @login_required
-def edit_photo_view(request, photo_id):
-    photo = get_object_or_404(Photo, id=photo_id, uploaded_by=request.user)
+def edit_photo_view(request, pk):
+    photo = get_object_or_404(Photo, pk=pk, uploaded_by=request.user)
     if request.method == 'POST':
         form = PhotoUploadForm(request.POST, request.FILES, instance=photo)
         if form.is_valid():
@@ -209,14 +241,15 @@ def edit_photo_view(request, photo_id):
     return render(request, 'edit_photo.html', context)
 
 @login_required
-def delete_photo_view(request, photo_id):
-    photo = get_object_or_404(Photo, id=photo_id, uploaded_by=request.user)
+def delete_photo_view(request, pk):
+    photo = get_object_or_404(Photo, pk=pk, uploaded_by=request.user)
     if request.method == 'POST':
         photo.delete()
         messages.success(request, "Photo deleted successfully!")
         return redirect('gallery')
     context = {'photo': photo}
     return render(request, 'delete_photo.html', context)
+
 
 #@login_required
 #def create_blog_post(request):

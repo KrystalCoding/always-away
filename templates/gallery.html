@@ -14,14 +14,14 @@
                     <h5 class="card-title">{{ photo.caption }}</h5>
                     <strong>
                         {% if user.is_authenticated %}
-                        <form class="d-inline" action="{% url 'photo_like' photo.id %}" method="POST">
+                        <form class="d-inline" action="{% url 'photo_like' pk=photo.pk %}" method="POST">
                             {% csrf_token %}
                             {% if photo_liked %}
-                            <button type="submit" name="photo_id" value="{{ photo.id }}" class="btn-like">
+                            <button type="submit" name="photo_id" value="{{ photo.pk }}" class="btn-like">
                                 <i class="fas fa-heart"></i>
                             </button>
                             {% else %}
-                            <button type="submit" name="photo_id" value="{{ photo.id }}" class="btn-like">
+                            <button type="submit" name="photo_id" value="{{ photo.pk }}" class="btn-like">
                                 <i class="far fa-heart"></i>
                             </button>
                             {% endif %}
@@ -32,48 +32,53 @@
                         <span class="text-secondary">{{ photo.number_of_likes }}</span>
                     </strong>
                 </div>
+
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
                         const photoContainers = document.querySelectorAll('.photo-container');
-
+                
                         photoContainers.forEach(container => {
                             container.addEventListener('click', function () {
-                                const photoId = this.dataset.photoId;
-                                window.location.href = `/photo/${photoId}/`; // Redirect to photo detail page
+                                const pk = this.dataset.photoId;
+                                window.location.href = `/photo/${pk}/`; // Redirect to photo detail page
                             });
                         });
                     });
                 </script>
+                
+
                 <div class="card-footer">
                     <h6>Comments:</h6>
                     {% for comment in photo.comments.all %}
-                        {% if comment.approved and comment.created_on %}
-                        <div class="comments">
-                            <p class="font-weight-bold">
-                                {{ comment.name }}
-                                <span class="text-muted font-weight-normal">
-                                    {{ comment.created_on }}
-                                </span> wrote:
-                            </p>
-                            {{ comment.body | linebreaks }}
-                        </div>
-                        {% if user.is_authenticated and user.username == comment.name %}
-                        <div class="comment-actions">
-                            <a href="{% url 'edit_photo_comment' photo.id comment.id %}" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="{% url 'delete_photo_comment' photo.id comment.id %}" class="btn btn-sm btn-danger">Delete</a>
-                        </div>
-                        {% endif %}
-                        {% endif %}
+                    {% if comment.approved and comment.created_on %}
+                    <div class="comments">
+                        <p class="font-weight-bold">
+                            {{ comment.name }}
+                            <span class="text-muted font-weight-normal">
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        {{ comment.body | linebreaks }}
+                    </div>
+                    {% if user.is_authenticated and user.username == comment.name %}
+                    <div class="comment-actions">
+                        <a href="{% url 'edit_photo_comment' pk=photo.pk comment_id=comment.id %}"
+                            class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{% url 'delete_photo_comment' pk=photo.pk comment_id=comment.id %}"
+                            class="btn btn-sm btn-danger">Delete</a>
+                    </div>                    
+                    {% endif %}
+                    {% endif %}
                     {% endfor %}
                     {% if user.is_authenticated %}
-                    <form method="post" action="{% url 'add_photo_comment' photo.id %}">
+                    <form method="post" action="{% url 'add_photo_comment' pk=photo.pk %}">
                         {% csrf_token %}
                         {{ comment_form | crispy }}
                         <button type="submit" class="btn btn-success mt-3">Submit Comment</button>
                     </form>
                     {% endif %}
                 </div>
-                                
+
             </div>
         </div>
         {% endfor %}

@@ -10,8 +10,11 @@
     <form method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Delete Comment</button>
-        <a href="{% url 'post_detail' slug=comment.content_object.slug %}" class="btn btn-secondary">Cancel</a>
     </form>
+    <div class="mt-4">
+        <a href="{% url 'edit_blog_comment' slug=comment.content_object.slug comment_id=comment.id %}" class="btn btn-secondary">Edit</a>
+        <a href="{% url 'post_detail' slug=comment.content_object.slug %}" class="btn btn-secondary">Cancel</a>
+    </div>
 </div>
 
 {% endblock content %}

@@ -81,8 +81,8 @@
                 </div>
                 {% if user.is_authenticated and user.username == comment.name %}
                 <div class="comment-actions">
-                    <a href="{% url 'edit_comment' object.slug comment.id %}" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="{% url 'delete_comment' object.slug comment.id %}" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{% url 'edit_blog_comment' object.slug comment.id %}" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="{% url 'delete_blog_comment' object.slug comment.id %}" class="btn btn-sm btn-danger">Delete</a>
                 </div>
                 {% endif %}
                 {% endfor %}
