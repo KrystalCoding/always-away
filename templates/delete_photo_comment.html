@@ -15,7 +15,6 @@
     <form method="post">
         {% csrf_token %}
         <a href="{% url 'edit_photo_comment' pk=comment.content_object.pk comment_id=comment.id %}" class="btn btn-secondary">Edit</a>
-        <a href="{% url 'delete_photo_comment' pk=comment.content_object.pk comment_id=comment.id %}" class="btn btn-secondary">Delete</a>
         <a href="{% url 'photo_detail' pk=comment.content_object.pk %}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
