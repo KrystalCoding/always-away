@@ -118,9 +118,6 @@ def delete_blog_comment(request, slug, comment_id):
 def edit_photo_comment(request, pk, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, approved=True)
 
-    if comment.content_object.pk != pk:
-        raise Http404("Comment does not belong to the specified post.")
-
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
@@ -137,9 +134,6 @@ def edit_photo_comment(request, pk, comment_id):
 @login_required
 def delete_photo_comment(request, pk, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, approved=True)
-
-    if comment.content_object.pk != pk:
-        raise Http404("Comment does not belong to the specified post.")
 
     if request.method == 'POST':
         comment.delete()
