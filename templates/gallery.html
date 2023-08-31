@@ -13,25 +13,10 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ photo.caption }}</h5>
                     <strong>
-                        {% if user.is_authenticated %}
-                        <form class="d-inline" action="{% url 'photo_like' pk=photo.pk %}" method="POST">
-                            {% csrf_token %}
-                            {% if photo_liked %}
-                            <button type="submit" name="photo_id" value="{{ photo.pk }}" class="btn-like">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            {% else %}
-                            <button type="submit" name="photo_id" value="{{ photo.pk }}" class="btn-like">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            {% endif %}
-                        </form>
-                        {% else %}
                         <span class="text-secondary"><i class="far fa-heart"></i></span>
-                        {% endif %}
                         <span class="text-secondary">{{ photo.number_of_likes }}</span>
                     </strong>
-                </div>
+                </div>                
 
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {

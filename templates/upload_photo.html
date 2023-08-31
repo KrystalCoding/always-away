@@ -3,13 +3,14 @@
 {% load crispy_forms_tags %}
 {% load cloudinary %}
 
-<div class="container">
-    <h2>Upload a Photo</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
+
+<div id='backend_upload'>
+    <form action="{% url "photo_album.views.upload" %}" method="post"
+          enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ backend_form }}
+      <input type="submit" value="Upload">
     </form>
-</div>
+  </div>
 
 {% endblock content %}
