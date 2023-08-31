@@ -6406,3 +6406,91 @@ Traceback (most recent call last):
     raise FieldError("Cannot resolve keyword '%s' into field. "
 django.core.exceptions.FieldError: Cannot resolve keyword 'is_sent' into field. Choices are: content, created_at, id, is_draft, sender, sender_id, subject
 "GET /sent_messages/ HTTP/1.1" 500 125990
+Internal Server Error: /admin/blog/message/add/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "blog_message_recipient" does not exist
+LINE 1: ...LECT "auth_user"."id" FROM "auth_user" INNER JOIN "blog_mess...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/contrib/admin/options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1587, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1125, in save_related
+    form.save_m2m()
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/forms/models.py", line 451, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/models/fields/related.py", line 1668, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/models/fields/related_descriptors.py", line 1000, in set
+    old_ids = set(self.using(db).values_list(self.target_field.target_field.attname, flat=True))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/models/query.py", line 280, in __iter__
+    self._fetch_all()
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/models/query.py", line 171, in __iter__
+    for row in compiler.results_iter(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1130, in results_iter
+    results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "blog_message_recipient" does not exist
+LINE 1: ...LECT "auth_user"."id" FROM "auth_user" INNER JOIN "blog_mess...
+                                                             ^
+
+"POST /admin/blog/message/add/ HTTP/1.1" 500 201188

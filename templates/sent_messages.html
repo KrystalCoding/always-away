@@ -4,6 +4,7 @@
 {% block content %}
   <h1>Sent Messages</h1>
   <a href="{% url 'inbox' %}" class="btn btn-primary">Primary Inbox</a>
+  <a href="{% url 'draft_inbox' %}" class="btn btn-primary">Draft Inbox</a>
   <ul>
     {% for message in draft_messages %}
     <li><a href="{% url 'sent_messages' message.id %}">{{ message.subject }}</a></li>

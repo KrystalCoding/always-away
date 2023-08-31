@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Post, Comment, Photo, Author, Message
+from django.contrib.auth.models import User
 from django.contrib.contenttypes.admin import GenericTabularInline
 from django_summernote.admin import SummernoteModelAdmin
 
@@ -70,3 +71,21 @@ admin.site.register(Comment, CommentAdmin)
 
 
 admin.site.register(Message)
+
+def send_message_to_users(modeladmin, request, queryset):
+    for user in queryset:
+        message = Message.objects.create(
+            sender=request.user,  # Admin user sending the message
+            subject="Your Subject Here",
+            content="Your Content Here",
+            is_draft=False,
+        )
+        message.recipient.add(user)
+
+send_message_to_users.short_description = "Send message to selected users"
+
+class UserAdmin(admin.ModelAdmin):
+    actions = [send_message_to_users]
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)

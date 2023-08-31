@@ -72,6 +72,7 @@ class Photo(models.Model):
 
 class Message(models.Model):
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    recipient = models.ManyToManyField(User, related_name='received_messages')
     subject = models.CharField(max_length=200)
     content = models.TextField()
     is_draft = models.BooleanField(default=False)
