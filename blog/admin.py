@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Photo, Author#, Category
+from .models import Post, Comment, Photo, Author, Message
 from django.contrib.contenttypes.admin import GenericTabularInline
 from django_summernote.admin import SummernoteModelAdmin
 
@@ -67,3 +67,6 @@ admin.site.register(Post, PostWithCommentsAdmin)
 admin.site.register(Photo, PhotoWithCommentsAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Comment, CommentAdmin)
+
+
+admin.site.register(Message)

@@ -1,4 +1,4 @@
-from .models import Comment, Post, Photo
+from .models import Comment, Post, Photo, Message
 from django import forms
 from . import models
 
@@ -45,12 +45,18 @@ class CommentForm(forms.ModelForm):
         if user:
             self.fields['author'].initial = user.username
 
+
 class PhotoUploadForm(forms.ModelForm):
     class Meta:
         model = Photo
         fields = ('image', 'caption')
-    
+   
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['image'].widget.attrs.update({'class': 'form-control-file'})
         self.fields['caption'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Caption'})
+
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = ['subject', 'content', 'is_draft']

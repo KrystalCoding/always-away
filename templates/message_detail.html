@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Message Detail</h1>
+  <p><strong>Subject:</strong> {{ message.subject }}</p>
+  <p><strong>Content:</strong> {{ message.content }}</p>
+  <p><a href="{% url 'edit_message' message.id %}">Edit</a> | <a href="{% url 'delete_message' message.id %}">Delete</a></p>
+{% endblock %}
