@@ -2,12 +2,11 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Draft Inbox</h1>
+  <h1>Sent Messages</h1>
   <a href="{% url 'inbox' %}" class="btn btn-primary">Primary Inbox</a>
-  <a href="{% url 'sent_messages' %}" class="btn btn-primary">Sent Messages</a>
   <ul>
     {% for message in draft_messages %}
-      <li><a href="{% url 'edit_message' message.id %}">{{ message.subject }}</a></li>
+    <li><a href="{% url 'sent_messages' message.id %}">{{ message.subject }}</a></li>
     {% endfor %}
   </ul>
 {% endblock %}

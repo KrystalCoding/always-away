@@ -225,3 +225,15 @@ def delete_message(request, message_id):
     if request.user == message.sender:
         message.delete()
     return redirect('inbox')
+
+@login_required
+def sent_messages(request):
+    sent_messages = Message.objects.filter(sender=request.user, is_draft=False).order_by('-created_at')
+    return render(request, 'sent_messages.html', {'sent_messages': sent_messages})
+
+@login_required
+def sent_message_detail(request, message_id):
+    message = get_object_or_404(Message, id=message_id, sender=request.user)
+    return render(request, 'sent_message_detail.html', {'message': message})
+
+
