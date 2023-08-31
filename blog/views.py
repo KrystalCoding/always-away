@@ -132,8 +132,13 @@ class PostLike(View):
 
 @login_required
 def inbox(request):
-    messages = Message.objects.filter(sender=request.user).order_by('-created_at')
+    messages = Message.objects.filter(sender=request.user, is_draft=False).order_by('-created_at')
     return render(request, 'inbox.html', {'messages': messages})
+
+@login_required
+def draft_inbox(request):
+    draft_messages = Message.objects.filter(sender=request.user, is_draft=True).order_by('-created_at')
+    return render(request, 'draft_inbox.html', {'draft_messages': draft_messages})
 
 @login_required
 def message_detail(request, message_id):
@@ -147,11 +152,43 @@ def send_message(request):
         if form.is_valid():
             message = form.save(commit=False)
             message.sender = request.user
-            message.save()
-            return redirect('inbox')  # Redirect to user's inbox
+            
+            if 'save_as_draft' in request.POST:
+                message.is_draft = True
+                message.save()
+                return redirect('draft_inbox')
+            else:
+                message.save()
+                if not message.is_draft:
+                    send_mail(
+                        f"New message from {message.sender.username}",
+                        f"Subject: {message.subject}\n\n{message.content}",
+                        settings.DEFAULT_FROM_EMAIL,
+                        [settings.ADMIN_EMAIL],
+                        fail_silently=False,
+                    )
+                return redirect('inbox')
     else:
         form = MessageForm()
     return render(request, 'send_message.html', {'form': form})
+
+
+
+@login_required
+def save_as_draft(request):
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.sender = request.user
+            message.is_draft = True
+            message.save()
+            return redirect('draft_inbox')
+    else:
+        form = MessageForm()
+    return render(request, 'send_message.html', {'form': form})
+
+
 
 @login_required
 def edit_message(request, message_id):
@@ -160,14 +197,27 @@ def edit_message(request, message_id):
         if request.method == 'POST':
             form = MessageForm(request.POST, instance=message)
             if form.is_valid():
-                form.save()
-                return redirect('inbox')
+                message = form.save(commit=False)
+
+                # Check if 'save_as_draft' button was clicked
+                if 'save_as_draft' in request.POST:
+                    message.is_draft = True
+                elif 'send' in request.POST:
+                    message.is_draft = False
+
+                message.save()
+
+                if message.is_draft:
+                    return redirect('draft_inbox')  # Redirect to draft inbox
+                else:
+                    return redirect('inbox')  # Redirect to user's inbox
         else:
             form = MessageForm(instance=message)
         return render(request, 'edit_message.html', {'form': form, 'message': message})
     else:
         # Handle unauthorized access
         pass
+
 
 @login_required
 def delete_message(request, message_id):

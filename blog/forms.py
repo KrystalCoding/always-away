@@ -59,4 +59,4 @@ class PhotoUploadForm(forms.ModelForm):
 class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
-        fields = ['subject', 'content', 'is_draft']
+        fields = ['subject', 'content']

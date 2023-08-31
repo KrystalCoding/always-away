@@ -7,7 +7,9 @@ urlpatterns = [
     path('send/', views.send_message, name='send_message'),
     path('edit/<int:message_id>/', views.edit_message, name='edit_message'),
     path('delete/<int:message_id>/', views.delete_message, name='delete_message'),
+    path('save_as_draft/', views.save_as_draft, name='save_as_draft'),
     path('inbox/', views.inbox, name='inbox'),
+    path('draft_inbox/', views.draft_inbox, name='draft_inbox'),
     path('message/<int:message_id>/', views.message_detail, name='message_detail'),
 
     # For editing and deleting comments on blog posts

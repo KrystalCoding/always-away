@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
   <h1>Inbox</h1>
+  <a href="{% url 'draft_inbox' %}" class="btn btn-primary">Draft Inbox</a>
   <ul>
     {% for message in messages %}
       <li><a href="{% url 'message_detail' message.id %}">{{ message.subject }}</a></li>

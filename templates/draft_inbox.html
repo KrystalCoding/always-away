@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>Draft Inbox</h1>
+  <a href="{% url 'inbox' %}" class="btn btn-primary">Primary Inbox</a>
+  <ul>
+    {% for message in draft_messages %}
+      <li><a href="{% url 'edit_message' message.id %}">{{ message.subject }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

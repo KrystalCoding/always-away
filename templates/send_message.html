@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
   <h1>Send Message</h1>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Send</button>
+    <button type="submit" name="save_as_draft" class="btn btn-secondary">Save as Draft</button>
+    <button type="submit" name="send" class="btn btn-primary">Send</button>
   </form>
 {% endblock %}
