@@ -7,6 +7,7 @@ from .forms import CommentForm, PostForm, PhotoUploadForm, MessageForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -152,21 +153,20 @@ def send_message(request):
         if form.is_valid():
             message = form.save(commit=False)
             message.sender = request.user
-            
-            if 'save_as_draft' in request.POST:
-                message.is_draft = True
+            message.is_draft = 'save_as_draft' in request.POST
+            admin_user = get_object_or_404(User, username='admin')
+            message.save()
+
+            message.recipient.set([admin_user])
+
+            if not message.is_draft:
+                message.recipient.set([admin_user])
                 message.save()
+                return redirect('inbox')
+
+            if message.is_draft:
                 return redirect('draft_inbox')
             else:
-                message.save()
-                if not message.is_draft:
-                    send_mail(
-                        f"New message from {message.sender.username}",
-                        f"Subject: {message.subject}\n\n{message.content}",
-                        settings.DEFAULT_FROM_EMAIL,
-                        [settings.ADMIN_EMAIL],
-                        fail_silently=False,
-                    )
                 return redirect('inbox')
     else:
         form = MessageForm()
@@ -199,7 +199,6 @@ def edit_message(request, message_id):
             if form.is_valid():
                 message = form.save(commit=False)
 
-                # Check if 'save_as_draft' button was clicked
                 if 'save_as_draft' in request.POST:
                     message.is_draft = True
                 elif 'send' in request.POST:
@@ -208,9 +207,9 @@ def edit_message(request, message_id):
                 message.save()
 
                 if message.is_draft:
-                    return redirect('draft_inbox')  # Redirect to draft inbox
+                    return redirect('draft_inbox')
                 else:
-                    return redirect('inbox')  # Redirect to user's inbox
+                    return redirect('inbox')
         else:
             form = MessageForm(instance=message)
         return render(request, 'edit_message.html', {'form': form, 'message': message})
@@ -225,15 +224,3 @@ def delete_message(request, message_id):
     if request.user == message.sender:
         message.delete()
     return redirect('inbox')
-
-@login_required
-def sent_messages(request):
-    sent_messages = Message.objects.filter(sender=request.user, is_draft=False).order_by('-created_at')
-    return render(request, 'sent_messages.html', {'sent_messages': sent_messages})
-
-@login_required
-def sent_message_detail(request, message_id):
-    message = get_object_or_404(Message, id=message_id, sender=request.user)
-    return render(request, 'sent_message_detail.html', {'message': message})
-
-

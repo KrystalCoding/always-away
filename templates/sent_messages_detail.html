@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
-
-{% block content %}
-  <h1>Sent Message Detail</h1>
-  <p><strong>Subject:</strong> {{ message.subject }}</p>
-  <p><strong>Content:</strong> {{ message.content }}</p>
-  <a href="{% url 'inbox' %}" class="btn btn-primary">Back to Inbox</a>
-{% endblock %}

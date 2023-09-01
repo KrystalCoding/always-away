@@ -11,8 +11,8 @@ urlpatterns = [
     path('inbox/', views.inbox, name='inbox'),
     path('draft_inbox/', views.draft_inbox, name='draft_inbox'),
     path('message/<int:message_id>/', views.message_detail, name='message_detail'),
-    path('sent_messages/', views.sent_messages, name='sent_messages'),
-    path('sent/<int:message_id>/', views.sent_message_detail, name='sent_messages_detail'),
+
+
 
     # For editing and deleting comments on blog posts
     path('post/<slug:slug>/edit_comment/<int:comment_id>/', views.edit_blog_comment, name='edit_blog_comment'),
