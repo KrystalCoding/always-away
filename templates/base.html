@@ -4,36 +4,41 @@
 <html class="h-100">
 
 <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Always Away Community</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
         </script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-<nav class="navbar navbar-light bg-dark justify-content-between" id="mainNav">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <span class="brand-text mb-0 h1">Always Away</span>
-        </a>
-        <ul class="nav nav-tabs" id="myTabs">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Blog</a>
-            </li>
-        
-            {% if user.is_authenticated %}
+    <nav id="navbar" class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <span class="brand-text mb-0 h1">Always Away</span>
+            </a>
+            <ul class="nav nav-tabs" id="myTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Blog</a>
+                </li>
+
+                {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'send_message' %}">Send Message</a>
                 </li>
@@ -43,23 +48,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                 </li>
-            {% else %}
+                {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                 </li>
-            {% endif %}
-        </ul>        
+                {% endif %}
+            </ul>
 
-    </div>
-    <div class="mx-auto">
-        <span class="navbar-text text-muted">
-            Adventures of the modern nomad.
-        </span>
-    </div>
-</nav>
+        </div>
+        <div class="mx-auto">
+            <span class="navbar-text text-muted">
+                Adventures of the modern nomad.
+            </span>
+        </div>
+    </nav>
 
 
     <div class="container">
@@ -85,50 +90,46 @@
     </main>
 
 
-    {% block sidebar %}
-
-    <style>
-        .card {
-            box-shadow: 0 16px 48px #E3E7EB;
-            width: 80%;
-            margin: 0 auto;
-        }
-    </style>
-
-    <!-- Sidebar Widgets Column -->
-    <div class="col-md-12 text-center">
-        <div class="card my-4">
-            <h5 class="card-header">About:</h5>
-            <div class="card-body">
-                <p class="card-text"> This community blog site is made for Code Institute's Fullstack Development
-                    Program, using 'Django'.</p>
-                <a href="https://djangocentral.com/building-a-blog-application-with-django" class="btn btn-info"
-                    target="_blank">Find
-                    out more about Django!</a>
-                <a href="https://codeinstitute.net/se/" class="btn btn-info" target="_blank">Find
-                    out more about Code Institute!</a>
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <h3 class="footer-heading">About Always Away</h3>
+                        <p>This is a fullstack portfolio project created for Project #4 at Code Institute</p>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <h3 class="footer-heading">Contact the Author</h3>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    {% endblock sidebar %}
-
-    <!-- Footer -->
-    <footer class="footer mt-auto py-3 bg-dark">
-        <p class="m-0 text-center text-light">A Fullstack Portfolio Project</p>
-        <p class="m-0 text-center text-light">&copy; Krystal Coding:
-            <a href="https://www.facebook.com/krystalrobin" target="_blank">
-                <i class="fab fa-facebook ms-4 text-success"></i>
-            </a>
-            <a href="https://www.instagram.com/semi__swede" target="_blank">
-                <i class="fab fa-instagram ms-4 text-success"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/krystal-juvrud" target="_blank">
-                <i class="fab fa-linkedin-in ms-4 text-success"></i>
-            </a>
-        </p>
+        <div class="footer-legal">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <div class="copyright">
+                            © Copyright <strong><span>Krystal Coding</span></strong>. All Rights Reserved
+                        </div>
+                        <div class="credits">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+                            <li><a href="https://www.facebook.com/krystalrobin" target="_blank" class="facebook"><i
+                                        class="bi bi-facebook"></i></a></li>
+                            <li><a href="https://www.instagram.com/semi__swede" target="_blank" class="instagram"><i
+                                        class="bi bi-instagram"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/krystal-juvrud" target="_blank" class="linkedin"><i
+                                        class="bi bi-linkedin"></i></a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
-    
+
     <script>
         setTimeout(function () {
             let closeButton = document.querySelector(".alert .btn-close");
@@ -137,6 +138,19 @@
             }
         }, 2000);
     </script>
+
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 

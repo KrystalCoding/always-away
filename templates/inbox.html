@@ -3,10 +3,19 @@
 
 {% block content %}
   <h1>Inbox</h1>
-  <a href="{% url 'draft_inbox' %}" class="btn btn-primary">Draft Inbox</a>
-  <ul>
-    {% for message in messages %}
-      <li><a href="{% url 'message_detail' message.id %}">{{ message.subject }}</a></li>
-    {% endfor %}
-  </ul>
+  <form method="post" action="{% url 'delete_selected_messages' %}">
+    {% csrf_token %}
+    <a href="{% url 'draft_inbox' %}" class="btn btn-primary">Draft Inbox</a>
+    <button type="submit" class="btn btn-danger">Delete Selected</button>
+    <ul>
+      {% for message in messages %}
+        <li>
+          <label>
+            <input type="checkbox" name="message_ids" value="{{ message.id }}">
+            <a href="{% url 'message_detail' message.id %}">{{ message.subject }}</a>
+          </label>
+        </li>
+      {% endfor %}
+    </ul>
+  </form>
 {% endblock %}

@@ -11,7 +11,8 @@ urlpatterns = [
     path('inbox/', views.inbox, name='inbox'),
     path('draft_inbox/', views.draft_inbox, name='draft_inbox'),
     path('message/<int:message_id>/', views.message_detail, name='message_detail'),
-
+    path('delete_selected_messages/', views.delete_selected_messages, name='delete_selected_messages'),
+    
 
 
     # For editing and deleting comments on blog posts

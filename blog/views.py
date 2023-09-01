@@ -224,3 +224,12 @@ def delete_message(request, message_id):
     if request.user == message.sender:
         message.delete()
     return redirect('inbox')
+
+def delete_selected_messages(request):
+    if request.method == 'POST':
+        message_ids = request.POST.getlist('message_ids')
+        # Delete selected messages
+        Message.objects.filter(id__in=message_ids).delete()
+    return redirect('inbox')
+
+    
