@@ -166,63 +166,6 @@ section {
     font-family: var(--font-primary);
 }
 
-.search-form-wrap {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 9;
-    transition: 0.3s all ease;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.search-form-wrap .search-form {
-    position: relative;
-}
-
-.search-form-wrap .search-form .form-control {
-    width: 300px;
-    border: none;
-    box-shadow: 0 15px 20px -10px rgba(var(--color-black-rgb), 0.1);
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-.search-form-wrap .search-form .form-control:active,
-.search-form-wrap .search-form .form-control:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-.search-form-wrap .search-form .icon {
-    position: absolute;
-    left: 0;
-    top: 7px;
-    opacity: 0.5;
-    left: 10px;
-}
-
-.search-form-wrap .search-form .btn {
-    position: absolute;
-    top: 2px;
-    right: 4px;
-    padding: 0;
-    margin: 0;
-    line-height: 1;
-    font-size: 30px;
-}
-
-.search-form-wrap .search-form .btn:active,
-.search-form-wrap .search-form .btn:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-.search-form-wrap.active {
-    visibility: visible;
-    opacity: 1;
-}
-
 section {
     scroll-margin-top: 70px;
 }
@@ -942,10 +885,14 @@ section {
   # Footer
   --------------------------------------------------------------*/
 .footer {
-    overflow: hidden;
+    display: none;
+    position: relative;
+    bottom: 0;
+    width: 100%;
     background: rgba(var(--color-black-rgb), 0.9);
     font-size: 16px;
     color: rgba(var(--color-white-rgb), 0.7);
+    z-index: 1;
 }
 
 .footer .footer-content {
@@ -1024,7 +971,8 @@ section {
 
 .footer .footer-legal .social-links a {
     display: inline-block;
-    margin: 0 10px; /* Add some horizontal spacing between social icons */
+    margin: 0 10px;
+    /* Add some horizontal spacing between social icons */
     width: 40px;
     height: 40px;
     background-color: rgba(var(--color-white-rgb), 0.09);
