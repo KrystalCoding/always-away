@@ -2,11 +2,32 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Send Message</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" name="save_as_draft" class="btn btn-secondary">Save as Draft</button>
-    <button type="submit" name="send" class="btn btn-primary">Send</button>
-  </form>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Send Message</div>
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+              </div>
+              <div class="mb-3">
+                <label for="content" class="form-label">Message</label>
+                <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="save_as_draft" name="save_as_draft">
+                <label class="form-check-label" for="save_as_draft">Save as Draft</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
+

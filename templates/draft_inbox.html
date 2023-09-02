@@ -2,11 +2,15 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Draft Inbox</h1>
-  <a href="{% url 'inbox' %}" class="btn btn-primary">Primary Inbox</a>
-  <ul>
-    {% for message in draft_messages %}
-      <li><a href="{% url 'edit_message' message.id %}">{{ message.subject }}</a></li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <h1 class="mt-4">Draft Inbox</h1>
+    <a href="{% url 'inbox' %}" class="btn btn-primary mb-3">Primary Inbox</a>
+    <ul class="list-group">
+      {% for message in draft_messages %}
+        <li class="list-group-item">
+          <a href="{% url 'edit_message' message.id %}">{{ message.subject }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}

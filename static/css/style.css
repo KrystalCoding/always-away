@@ -50,6 +50,36 @@ section {
     margin-bottom: 0;
 }
 
+/* Style the login form */
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style form fields and buttons */
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Style the login button */
+.login-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Add more styles as needed */
+
 /*--------------------------------------------------------------
   # Scroll top button
   --------------------------------------------------------------*/

@@ -2,20 +2,30 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Message Detail</h1>
-  <form method="post">
-    {% csrf_token %}
-    <div class="form-group">
-      <label for="id_subject">Subject:</label>
-      <input type="text" id="id_subject" class="form-control" value="{{ message.subject }}" readonly>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Message Detail</div>
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="id_subject" class="form-label">Subject:</label>
+                <input type="text" id="id_subject" class="form-control" value="{{ message.subject }}" readonly>
+              </div>
+              <div class="mb-3">
+                <label for="id_content" class="form-label">Content:</label>
+                <textarea id="id_content" class="form-control" rows="4" readonly>{{ message.content }}</textarea>
+              </div>
+              <div class="mb-3">
+                <a href="{% url 'edit_message' message.id %}" class="btn btn-secondary">Edit</a>
+                <a href="{% url 'delete_message' message.id %}" class="btn btn-danger">Delete</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="id_content">Content:</label>
-      <textarea id="id_content" class="form-control" rows="4" readonly>{{ message.content }}</textarea>
-    </div>
-    <div class="form-group">
-      <a href="{% url 'edit_message' message.id %}" class="btn btn-secondary">Edit</a>
-      <a href="{% url 'delete_message' message.id %}" class="btn btn-danger">Delete</a>
-    </div>
-  </form>
+  </div>
 {% endblock %}
