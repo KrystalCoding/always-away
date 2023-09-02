@@ -75,7 +75,7 @@ admin.site.register(Message)
 def send_message_to_users(modeladmin, request, queryset):
     for user in queryset:
         message = Message.objects.create(
-            sender=request.user,  # Admin user sending the message
+            sender=request.user,
             subject="Your Subject Here",
             content="Your Content Here",
             is_draft=False,
