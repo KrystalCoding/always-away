@@ -4,8 +4,6 @@ import dj_database_url
 from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
-from storages.backends.whitenoise import WhiteNoiseMixin
-from cloudinary_storage.storage import StaticHashedCloudinaryStorage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -144,11 +142,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-class CustomStaticStorage(WhiteNoiseMixin, StaticHashedCloudinaryStorage):
-    pass
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'always-away.settings.CustomStaticStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
