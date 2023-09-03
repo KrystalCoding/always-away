@@ -10,7 +10,7 @@
                 <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
                 <p class="text-muted">{{ object.author }} | {{ object.created_on }}</p>
                 {% if "placeholder" in object.featured_image.url %}
-                <img src="https://www.example.com/path/to/your/placeholder/image.jpg" width="100%">
+                <img src="https://res.cloudinary.com/krystalcoding/image/upload/v1693749946/pexels-james-wheeler-1598075_snnext.jpg" width="100%">
                 {% else %}
                 <img src="{{ object.featured_image.url }}" width="100%">
                 {% endif %}

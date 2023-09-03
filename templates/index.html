@@ -9,13 +9,18 @@
         <!-- Blog Entries Column -->
         <div class="col-lg-8">
             {% for post in post_list %}
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                 <div class="post-entry-1">
                     <a href="{% url 'post_detail' post.slug %}">
-                        <img src="https://res.cloudinary.com/krystalcoding/image/upload/v1693749946/pexels-james-wheeler-1598075_snnext.jpg" alt="Moving train on tracks" class="img-fluid">
+                        {% if "placeholder" in post.featured_image.url %}
+                        <img src="https://res.cloudinary.com/krystalcoding/image/upload/v1693749946/pexels-james-wheeler-1598075_snnext.jpg"
+                            alt="Moving train on tracks" class="img-fluid">
+                        {% else %}
+                        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="img-thumbnail">
+                        {% endif %}
                     </a>
                     <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
-                    <p class="mb-4 d-block">{{ post.exerpt }}</p>
+                    <p class="mb-4 d-block">{{ post.excerpt }}</p>
 
                     <div class="d-flex align-items-center author">
                         <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
@@ -28,20 +33,26 @@
         <div class="col-lg-4">
             <div class="col-lg-12 border-start custom-border">
                 <div class="post-entry-1">
-                    <a href="https://codeinstitute.net/"><img src="https://res.cloudinary.com/krystalcoding/image/upload/v1693750065/code-20institute-20600-20logo_eaptaa.png" alt="Code Institute Logo" class="img-fluid" style="max-width: 70px; height: auto;">
+                    <a href="https://codeinstitute.net/"><img
+                            src="https://res.cloudinary.com/krystalcoding/image/upload/v1693750065/code-20institute-20600-20logo_eaptaa.png"
+                            alt="Code Institute Logo" class="img-fluid" style="max-width: 70px; height: auto;">
                     </a>
                     <h2><a href="https://codeinstitute.net/">Code Institute</a></h2>
-                    <p class="mb-4 d-block">Learn web development with Code Institute's Full Stack Software Development Diploma. Get certified in HTML, CSS, JavaScript, Python, and more.</p>
+                    <p class="mb-4 d-block">Learn web development with Code Institute's Full Stack Software Development
+                        Diploma. Get certified in HTML, CSS, JavaScript, Python, and more.</p>
                 </div>
-        
+
                 <div class="post-entry-1">
-                    <a href="https://www.djangoproject.com/"><img src="https://res.cloudinary.com/krystalcoding/image/upload/v1693750070/django-logo_rrvxdr.png" alt="Django Logo" class="img-fluid" style="max-width: 70px; height: auto;"></a>
+                    <a href="https://www.djangoproject.com/"><img
+                            src="https://res.cloudinary.com/krystalcoding/image/upload/v1693750070/django-logo_rrvxdr.png"
+                            alt="Django Logo" class="img-fluid" style="max-width: 70px; height: auto;"></a>
                     <h2><a href="https://www.djangoproject.com/">Django Web Framework</a></h2>
-                    <p class="mb-4 d-block">Build web applications with Django, a high-level Python web framework. Explore Django's features for rapid development.</p>
+                    <p class="mb-4 d-block">Build web applications with Django, a high-level Python web framework.
+                        Explore Django's features for rapid development.</p>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 
