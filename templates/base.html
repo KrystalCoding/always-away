@@ -4,6 +4,7 @@
 <html class="h-100">
 
 <head>
+    <!-- Meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Always Away Community</title>
@@ -22,29 +23,24 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-        </script>
+    </script>
 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-
 </head>
 
 <body class="d-flex flex-column h-100">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
         <div class="container-fluid">
-
             <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'home' %}">
                 <h5 class="pt-1">Always Away</h5>
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -70,14 +66,10 @@
                     {% endif %}
                 </ul>
             </div>
-
         </div>
-
     </nav>
 
-
-
-
+    <!-- Messages -->
     <div class="content-container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -92,25 +84,22 @@
         </div>
     </div>
 
-
-
+    <!-- Main Content -->
     <main class="flex-shrink-0 main-bg" style="margin-top: 10%; margin-bottom: 10%;">
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
     </main>
 
-
     <!-- Footer -->
     <footer id="footer" class="footer bg-light text-dark">
-
         <div class="container p-4 pb-0">
-
             <section class="mb-4 d-flex justify-content-center">
-
-                <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/krystalrenae"
-                    target="_blank" role="button"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16"
-                        height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                <!-- Social media links -->
+                <a class="btn btn-outline-light btn-floating m-1"
+                    href="https://www.facebook.com/krystalrenae" target="_blank" role="button"><svg class="icon"
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-facebook" viewBox="0 0 16 16">
                         <path
                             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
                     </svg></a>
@@ -133,12 +122,10 @@
                     target="_blank" role="button"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16"
                         height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08-.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                     </svg></a>
             </section>
-
         </div>
-
 
         <!-- About section -->
         <div class="container">
@@ -160,8 +147,7 @@
         <!-- Copyright -->
     </footer>
 
-
-
+    <!-- JavaScript for auto-closing alerts -->
     <script>
         setTimeout(function () {
             let closeButton = document.querySelector(".alert .btn-close");
@@ -170,7 +156,6 @@
             }
         }, 2000);
     </script>
-
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

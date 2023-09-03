@@ -11,6 +11,7 @@
             {% for post in post_list %}
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                 <div class="post-entry-1">
+                    <!-- Blog post entry container -->
                     <a href="{% url 'post_detail' post.slug %}">
                         {% if "placeholder" in post.featured_image.url %}
                         <img src="https://res.cloudinary.com/krystalcoding/image/upload/v1693749946/pexels-james-wheeler-1598075_snnext.jpg"
@@ -30,6 +31,7 @@
             {% endfor %}
         </div>
 
+        <!-- Right sidebar column -->
         <div class="col-lg-4">
             <div class="col-lg-12 border-start custom-border">
                 <div class="post-entry-1">

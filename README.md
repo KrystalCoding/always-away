@@ -141,8 +141,15 @@ Always Away is a community blog site, written with the intention of sharing expe
 * [_Sound effects_](https://pixabay.com/sound-effects/search/star%20wars/)
 * [_Pixabay_](https://pixabay.com/)
 * [_Pexels_](https://www.pexels.com/)
-    - Photo by Alex Azabache
-    - Photos by cottonbro studio
+    - Photos by: 
+      - Alex Azabache
+      - Cottonbro Studio
+      - Adrian Vieriu
+      - James Wheeler
+      - Krampus Production
+      - Ketut Subiyanto
+      - Matt Barnard
+
 * [_Kindpng_](https://www.kindpng.com/)
 
 ## <span id="team"></span>Team Members

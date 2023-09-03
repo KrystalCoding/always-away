@@ -6,6 +6,7 @@
 <div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-md-8 card mb-4">
+            <!-- Card body for displaying content -->
             <div class="card-body text-center">
                 <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
                 <p class="text-muted">{{ object.author }} | {{ object.created_on }}</p>
@@ -19,6 +20,7 @@
     </div>
 </div>
 
+<!-- Container for additional content -->
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
@@ -28,9 +30,11 @@
                 </p>
                 <div class="row">
                     <div class="col-1 text-center">
+                        <!-- Checks if the user is authenticated -->
                         {% if user.is_authenticated %}
                         <form action="{% url 'post_like' object.slug %}" method="POST" class="d-inline">
                             {% csrf_token %}
+                            <!-- Checks if the post is liked by the user -->
                             {% if liked %}
                             <button type="submit" name="blogpost_id" value="{{ object.slug }}" class="btn-like">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -52,6 +56,7 @@
                             {% endif %}
                         </form>
                         {% else %}
+                        <!-- If the user is not authenticated, display a static like button -->
                         <span class="text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-heart" viewBox="0 0 16 16">
@@ -63,6 +68,7 @@
                         {% endif %}
                     </div>
                 
+                    <!-- Column for comment count -->
                     <div class="col-1 text-center">
                         {% with comments.count as total_comments %}
                         <div class="icon-counter-box">
@@ -88,6 +94,8 @@
             <hr>
         </div>
     </div>
+
+    <!-- Row for comments -->
     <div class="row">
         <div class="col-md-8 card mb-4 mt-3">
             <h3>Comments:</h3>
@@ -101,8 +109,10 @@
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
+                    <!-- Display comment content -->
                     {{ comment.body | linebreaks }}
                 </div>
+                <!-- Check if user is authenticated and owns the comment -->
                 {% if user.is_authenticated and user.username == comment.name %}
                 <div class="comment-actions">
                     <a href="{% url 'edit_blog_comment' object.slug comment.id %}"
@@ -115,6 +125,7 @@
             </div>
         </div>
 
+        <!-- Card column for comment submission -->
         <div class="col-md-4 card mb-4 mt-3">
             <div class="card-body">
                 {% if commented %}
@@ -137,18 +148,23 @@
                     </ul>
                 </div>
                 {% endif %}
+
+                <!-- JavaScript to fade out alerts after 2 seconds -->
                 <script>
                     setTimeout(function () {
                         $('.alert').fadeOut('slow');
                     }, 2000);
                 </script>
+
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
+
                 {% endif %}
                 {% endif %}
+
             </div>
         </div>
     </div>
