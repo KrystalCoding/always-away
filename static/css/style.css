@@ -149,3 +149,9 @@ a:hover {
     color: var(--btn-primary-text);
     border-color: var(--btn-primary-border);
 }
+
+/* CSS to set explicit width and height for images */
+img {
+    width: 100%;
+    height: auto;
+}
