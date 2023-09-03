@@ -176,3 +176,8 @@ a:hover {
     border: 1px solid var(--btn-primary-border); /* Use the primary button border color */
 }
 
+.sidebar-image {
+    max-width: 10%;
+    height: auto;
+    display: block;
+}

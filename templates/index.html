@@ -2,6 +2,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 {% load cloudinary %}
+{% load static %}
 
 <div class="container" data-aos="fade-up">
     <div class="row g-5">
@@ -11,7 +12,7 @@
             <div class="col-lg-6">
                 <div class="post-entry-1">
                     <a href="{% url 'post_detail' post.slug %}">
-                        <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="" class="img-fluid">
+                        <img src="https://res.cloudinary.com/krystalcoding/image/upload/v1693749946/pexels-james-wheeler-1598075_snnext.jpg" alt="Moving train on tracks" class="img-fluid">
                     </a>
                     <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
                     <p class="mb-4 d-block">{{ post.exerpt }}</p>
@@ -24,22 +25,23 @@
             {% endfor %}
         </div>
 
-        <!-- Sidebar -->
         <div class="col-lg-4">
             <div class="col-lg-12 border-start custom-border">
                 <div class="post-entry-1">
-                    <a href="https://codeinstitute.net/"><img src="assets/img/code-institute-logo.png" alt="Code Institute Logo" class="img-fluid"></a>
+                    <a href="https://codeinstitute.net/"><img src="https://res.cloudinary.com/krystalcoding/image/upload/v1693750065/code-20institute-20600-20logo_eaptaa.png" alt="Code Institute Logo" class="img-fluid" style="max-width: 70px; height: auto;">
+                    </a>
                     <h2><a href="https://codeinstitute.net/">Code Institute</a></h2>
                     <p class="mb-4 d-block">Learn web development with Code Institute's Full Stack Software Development Diploma. Get certified in HTML, CSS, JavaScript, Python, and more.</p>
                 </div>
-
+        
                 <div class="post-entry-1">
-                    <a href="https://www.djangoproject.com/"><img src="assets/img/django-logo.png" alt="Django Logo" class="img-fluid"></a>
+                    <a href="https://www.djangoproject.com/"><img src="https://res.cloudinary.com/krystalcoding/image/upload/v1693750070/django-logo_rrvxdr.png" alt="Django Logo" class="img-fluid" style="max-width: 70px; height: auto;"></a>
                     <h2><a href="https://www.djangoproject.com/">Django Web Framework</a></h2>
                     <p class="mb-4 d-block">Build web applications with Django, a high-level Python web framework. Explore Django's features for rapid development.</p>
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 
