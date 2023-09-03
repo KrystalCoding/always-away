@@ -1,7 +1,9 @@
 # <span id="overview"></span>Always Away
-Always Away is a community blog site, written with the intention of sharing experiences and engaging with like-minded individuals. Here, I'll be sharing my personal journey and experiences as a modern-day nomad, and whether you're already on the road, planning your next adventure, or simply intrigued by the stories of the migrating life, you're invited to join in.
+## Site Purpose:
 
-![picture of responsive design](link here)
+Always Away is a community blog site, written with the intention of sharing experiences and engaging with like-minded individuals. Here, I'll be sharing my personal journey and experiences as a long-term expatriot. Whether you're a fellow willing wanderer, displaced person, dreaming of the adventures in your own future, or simply intrigued by the stories of the migrating life, you are invited to join in to create an online community.
+
+![picture of responsive design](/media/gallery/responsiveness.png)
 
 
 # <span id="contents-menu"></span>Contents menu
@@ -123,23 +125,23 @@ Always Away is a community blog site, written with the intention of sharing expe
 ### <span id="validator"></span>Validator Testing
 
 
-| Validator     | Pass | Fail     |
-| :---        |    :----:   | :----: |
-| HTML      | 0       | &check;   |
-| CSS   | 0        | &check;     |
-| JavaScript      |   0      | &check;   |
-| Lighthouse   |    0      | &check;      |
-| Grammarly      | &check;       | 0   |
+| Validator  |  Pass  |  Fail  |
+| :---  |    :----:   | :----: |
+| HTML  |  &check;  |  0  |
+| W3 CSS  |  &check;  |  0  |
+| JavaScript  |   &check;   |  0  |
+| Lighthouse  |  &check;  |  &check;  |
+| Grammarly  |  &check;  |  0  |
 
 
 
 ## <span id="credits"></span>Credits
-* [Martina Terlevic](link here): Code Institute Mentor and center of sanity.
+* Martina Terlevic: Code Institute Mentor and center of sanity.
+* OpenAI for the cheesy content of my fake blog posts.
+* Code Institute's walkthrough Django project, called [_I think therefore I blog_](https://github.com/Code-Institute-Solutions/Django3blog/tree/master), for basic repository set up and starter Django project code.
 
 ## <span id="media"></span>Media
 
-* [_Sound effects_](https://pixabay.com/sound-effects/search/star%20wars/)
-* [_Pixabay_](https://pixabay.com/)
 * [_Pexels_](https://www.pexels.com/)
     - Photos by: 
       - Alex Azabache
@@ -150,7 +152,7 @@ Always Away is a community blog site, written with the intention of sharing expe
       - Ketut Subiyanto
       - Matt Barnard
 
-* [_Kindpng_](https://www.kindpng.com/)
+*  [_Cloudinary_](https://cloudinary.com/) photo hosting platform
 
 ## <span id="team"></span>Team Members
 
