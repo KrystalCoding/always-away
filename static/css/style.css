@@ -145,3 +145,33 @@ a:hover {
 }
 
 
+/* Sign-up Button */
+.btn-signup {
+    background-color: #23BBBB;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #23BBBB;
+    text-decoration: none;
+}
+
+/* Sign-up Button - Apply Styles to Submit Button */
+.btn-signup[type="submit"] {
+    background-color: var(--btn-primary-bg); /* Use the primary button background color */
+    color: var(--btn-primary-text); /* Use the primary button text color */
+    border: 1px solid var(--btn-primary-border); /* Use the primary button border color */
+}
+
+/* Login Button - Apply Styles to Submit Button */
+.btn-login[type="submit"] {
+    background-color: var(--btn-primary-bg); /* Use the primary button background color */
+    color: var(--btn-primary-text); /* Use the primary button text color */
+    border: 1px solid var(--btn-primary-border); /* Use the primary button border color */
+}
