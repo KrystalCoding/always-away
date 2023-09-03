@@ -18,6 +18,7 @@ class PostAdmin(SummernoteModelAdmin):
     list_display = ('title', 'slug', 'status', 'created_on')
     search_fields = ['title', 'content']
     summernote_fields = ('content',)
+    fields = ('title', 'slug', 'author', 'content', 'local_featured_image', 'cloudinary_featured_image', 'excerpt', 'status', 'likes')
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
@@ -25,6 +26,7 @@ class PhotoAdmin(admin.ModelAdmin):
     list_display = ('image', 'caption', 'uploaded_by', 'uploaded_on')
     search_fields = ('caption', 'uploaded_by__username', 'uploaded_on')
     list_filter = ('uploaded_on',)
+    fields = ('image', 'caption', 'uploaded_by')
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):

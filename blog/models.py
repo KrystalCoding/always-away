@@ -15,6 +15,8 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
+    local_featured_image = models.ImageField(upload_to='images/', blank=True, null=True)
+    cloudinary_featured_image = models.URLField(blank=True, null=True)
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -62,6 +64,7 @@ class Category(models.Model):
 
 class Photo(models.Model):
     image = models.ImageField(upload_to='images/')
+    cloudinary_image = CloudinaryField("image")
     caption = models.CharField(max_length=200, blank=True)
     uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     uploaded_on = models.DateTimeField(auto_now_add=True)
