@@ -6,8 +6,6 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-#class Category(models.Model):
-#    name = models.CharField(max_length=20)
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -22,7 +20,6 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='blogpost_like', blank=True)
-#   categories = models.ManyToManyField('Category', related_name='posts')
 
     class Meta:
         ordering = ["-created_on"]
@@ -32,6 +29,7 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
 
 class Comment(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True,)
@@ -49,6 +47,7 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
 
+
 class Author(models.Model):
     User = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField()
@@ -56,11 +55,13 @@ class Author(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Category(models.Model):
     title = models.CharField(max_length=20)
 
     def __str__(self):
         return self.title
+
 
 class Photo(models.Model):
     image = models.ImageField(upload_to='images/')
