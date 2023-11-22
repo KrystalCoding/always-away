@@ -301,14 +301,187 @@ Alternatively - Use Gitpod:
 ## <span id="testing"></span>Testing
 ### <span id="validator"></span>Validator Testing:
 
+1. Manual testing
+2. Automated testing
 
-| Validator  |  Pass  |  Fail  |
-| :---  |    :----:   | :----: |
-| HTML  |  &check;  |  0  |
-| W3 CSS  |  &check;  |  0  |
-| JavaScript  |   &check;   |  0  |
-| Lighthouse  |  &check;  |  &check;  |
-| Grammarly  |  &check;  |  0  |
+### Manual testing
+
+1. As a site User I can view a paginated list of pages so that I can easily select a page to view
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+| Click on the links (or hamburger icon on smaller screens) to intuitively access pagination via navigation bar | Nav bar drop down will open on smaller screens, and links will open to their associated pages. (See below for specific link functions) | Works as expected |
+| Click on the Social Media icons link in the footer | Associated social media icons will load in a separate tab | Works as expected |
+| Click on the 'Code Institute' or 'Django Framework' logos in the side panel | External tabs with associated websites will load | Works as expected |
+
+<details><summary></summary>
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+</details>
+
+9. As an Admin / Authorised User I can log in so that I can access the back end of the site
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+| Visit the admin page (ENTER LINK HERE)| Enter admin login credentials, gain access to back end | Works as expected |
+
+
+<details><summary></summary>
+<img src="">
+<img src="">
+
+
+</details>
+
+3. As a Site Owner I can create and save draft blog posts, publish new blog posts, and edit formerly published posts.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+| Click on Create new post | New Post form will appear | Works as expected |
+| Click on save post as draft | Post is saved in admin panel for further updates | Works as expected |
+| Click on publish post | New Post is published on front end for public viewing | Works as expected |
+| Click on edit post in admin panel | Updates are published on front end for public viewing | Works as expected |
+
+
+<details><summary></summary>
+<img src="">
+
+</details>
+
+4. As a site User, I can register a personal account, access inbox, compose messages and save as drafts for further editing, and send messages to site admin.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+| Click on the 'Register' link in the navigation bar | Sign up page will load| Works as expected |
+| Click on the 'Sign in' link in the navigation bar | Login page will load| Works as expected |
+| Click on the 'Contact' link in the navigation bar | Send Message to Admin form will load| Works as expected |
+| Click on the 'Inbox' link in the navigation bar, or 'Primary Inbox' button in the Draft Inbox page | Inbox page will load | Works as expected |
+| Click on the 'Draft Inbox' link in the navigation bar, or from the button in the Inbox page | Draft Inbox page will load| Works as expected |
+| Click on the 'Logout' link in the navigation bar | Logout page will load| Works as expected |
+
+<details><summary></summary>
+<img src="">
+<img src="">
+
+</details>
+
+2. As a site User, I can view blog post homepage, access individual posts for viewing content, comments, and likes. When logged in as a registered user, I can post my own comments and like posts.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+ | Click on 'Blog Home' and scroll to footer at bottom of page | View blog home page in full length, all the way to the footer | Works as expected |
+ | Click on individual posts to view content, including comments and likes | Opens individual post with scrolling function | Works as expected |
+ | Click on like button | Page refreshes and updates icon via user's action of either liking or unliking a post | Works as expected |
+ | Write comment and post with button | Page refreshes with comment + ability for user to edit or delete their own comment | Works as expected |
+
+<details><summary></summary>
+<img src="">
+<img src="">
+
+</details>
+
+5. As a site Owner, I can approve or delete user comments from blog posts.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+| Click on 'Comments' in admin panel| Choose to approve or delete user comments | Works as expected |
+
+<details><summary></summary>
+<img src="">
+<img src="">
+
+</details>
+
+### Automated testing
+
+- Testing was done using the built in Django module, unittest.
+- Coverage was also usesd to generate a report
+
+
+<details><summary>Bar & Grill App, test_models.py</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-models.PNG">
+</details>
+
+<details><summary>Bar & Grill App, test_views.py</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-views.PNG">
+</details>
+
+<details><summary>Bar & Grill App, test_urls.py</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-urls.PNG">
+</details>
+
+<details><summary>Bar & Grill App, Coverage</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/coverage-bar-and-grill.PNG">
+</details>
+
+<details><summary>Bookings App, test_models.py</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-models.PNG">
+</details>
+
+<details><summary>Bookings App, test_views.py</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-views.PNG">
+</details>
+
+<details><summary>Bookings App, test_urls.py</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-urls.PNG">
+</details>
+
+<details><summary>Bookings App, Coverage</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/coverage-bookings.PNG">
+</details>
+
+
+### Device Testing & Browser compatibility
+
+The site uses to test on various real world devices was [BrowserStack](https://ci-pp4-the-diplomat.herokuapp.com/)  
+
+This allowed me to test on real devices and not just device emulators.
+
+The following devices were used to test my site:
+
+<details><summary>Samsung Galaxy S22 Ultra</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-samsung-s22-ultra.PNG">
+</details>
+
+<details><summary>Apple iPhone 13</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-iphone-13.PNG">
+</details>
+
+<details><summary>Google Pixel 5</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-google-pixel-5.PNG">
+</details>
+
+<details><summary>Mozilla Firefox (v105 latest)</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-firefox.PNG">
+</details>
+
+<details><summary>Google Chrome (v106 latest)</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-chrome.PNG">
+</details>
+
+<details><summary>Safari (Monteray v15.3 latest)</summary>
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-safari-monteray-15.3.PNG">
+</details>
+
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## Bugs
+
+| **Bug** | **Fix** |
+| ------- | ------- |
+| css not loading| the css folder was created in uppercase as CSS, renamed and fixed |
+| While logged in as a user, on edit bookings page, if you changed the url booking number and if the number was a valid booking for another user it would access the booking | Defensive programming to make sure that only bookings made by the user would be visible |
+| Double bookings | Adjusted code to check that the date, time and table were unique together and to give an error to indicate to the user that the booking was unavailable for that date, time and table combination |
+| Food item description not showing on menu | A "p" element was used to encase the jinja code, once removed the food item description was then visible |
+| Foods not listing by type, starters, manins and desserts | I needed to fix the database loop for the food items to specify the food type had to be a starter to display in the starter section of the menu, and the same for mains and desserts |
+| Drinks not listing by type, wines, beers and cocktails | I needed to fix the database loop for the drinks item to specify the drink type had to be a wine to display in the wine section of the menu, and the same for beers and cocktails |
+| Card links not working on home page for book a table, food menu and drinks menu | The links were not set within urls.py so just needed to be wired up to load each relevant page |
+| Booking form accepting phone number that are too short | I used Django PhoneNumberField to ensure only valid phone formats were accepted |
+
 
 
 ## <span id="credits"></span>Credits
