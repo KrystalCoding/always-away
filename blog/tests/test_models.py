@@ -3,7 +3,7 @@ import unittest
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
-from .models import Post, Comment, Author, Category, Photo, Message
+from blog.models import Post, Comment, Author, Category, Photo, Message
 
 class BlogModelTests(TestCase):
     def setUp(self):

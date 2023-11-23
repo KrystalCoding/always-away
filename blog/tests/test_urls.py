@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.contenttypes.models import ContentType
-from .models import Post, Comment, Author, Category, Photo, Message
+from blog.models import Post, Comment, Author, Category, Photo, Message
 
 class BlogURLTests(TestCase):
     def setUp(self):
@@ -12,7 +12,7 @@ class BlogURLTests(TestCase):
         self.user = User.objects.create_user(username='testuser', password='testpassword')
 
     def test_post_list_url(self):
-        response = self.client.get(reverse('post_list'))
+        response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
 
     def test_post_detail_url(self):
@@ -41,7 +41,7 @@ class BlogURLTests(TestCase):
             approved=True
         )
         response = self.client.get(reverse('edit_blog_comment', args=[post.slug, comment.id]))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_delete_blog_comment_url(self):
         post = Post.objects.create(
@@ -59,6 +59,4 @@ class BlogURLTests(TestCase):
             approved=True
         )
         response = self.client.get(reverse('delete_blog_comment', args=[post.slug, comment.id]))
-        self.assertEqual(response.status_code, 200)
-
-    # Add more URL tests as needed for other views
+        self.assertEqual(response.status_code, 302)

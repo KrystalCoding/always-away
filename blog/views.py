@@ -10,6 +10,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.conf import settings
+from django.views.generic import DetailView
 
 
 
@@ -20,29 +21,26 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-class PostDetail(View):    
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
-        
-        comment_ct = ContentType.objects.get_for_model(Post)
-        comments = Comment.objects.filter(content_type=comment_ct, object_id=post.id, approved=True).order_by('-created_on')
+class PostDetail(DetailView):
+    model = Post
+    template_name = 'post_detail.html'
+    context_object_name = 'object'
+    slug_url_kwarg = 'slug'
+    query_pk_and_slug = True
 
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked = True
-        
-        return render(
-            request,
-            "post_detail.html",
-            {
-                "object": post,  # Use "object" instead of "post"
-                "comments": comments,
-                "commented": False,
-                "liked": liked,
-                "comment_form": CommentForm()
-            },
-        )
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comments'] = Comment.objects.filter(
+            content_type=ContentType.objects.get_for_model(Post),
+            object_id=self.object.id,
+            approved=True
+        ).order_by('-created_on')
+
+        context['liked'] = self.object.likes.filter(id=self.request.user.id).exists()
+        context['comment_form'] = CommentForm()
+
+        return context
+
 
     @method_decorator(login_required)
     def post(self, request, slug, *args, **kwargs):
