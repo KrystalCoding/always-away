@@ -4,6 +4,10 @@ from . import models
 
 
 class PostForm(forms.ModelForm):
+    """
+    Form for creating or editing a blog post.
+    """
+
     title = forms.CharField(
         max_length=255,
         widget=forms.TextInput(attrs={
@@ -29,6 +33,10 @@ class PostForm(forms.ModelForm):
        fields = ['title', 'content', 'featured_image', 'status']
 
 class CommentForm(forms.ModelForm):
+    """
+    Form for creating a comment on a blog post.
+    """
+
     body = forms.CharField(widget=forms.Textarea(
         attrs={
             "class": "form-control",
@@ -47,6 +55,10 @@ class CommentForm(forms.ModelForm):
 
 
 class PhotoUploadForm(forms.ModelForm):
+    """
+    Form for uploading a photo.
+    """
+
     class Meta:
         model = Photo
         fields = ('image', 'caption')
@@ -57,6 +69,10 @@ class PhotoUploadForm(forms.ModelForm):
         self.fields['caption'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Caption'})
 
 class MessageForm(forms.ModelForm):
+    """
+    Form for creating a message.
+    """
+    
     class Meta:
         model = Message
         fields = ['subject', 'content']

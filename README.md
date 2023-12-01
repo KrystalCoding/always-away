@@ -18,10 +18,10 @@ View the live site by clicking [HERE](https://always-away-227aba88ca4e.herokuapp
   - [_New User Goals_](#new-user-goals)
   - [_Current User Goals_](#current-user-goals)
   - [_Future User Goals_](#future-goals)
+- [_Accessibility_](#accessibility)
 - [_Agile Methodology_](#agile)
 - [_User Stories_](#user-stories)
-  - [_Users_](#users)
-  - [_Admin_](#admin)
+- [_Wireframes_](#wireframes)
 - [_Features_](#features)
   - [_Navbar_](#navbar)
   - [_Footer/Social Media_](#footer)
@@ -96,30 +96,62 @@ and possibly make a new friend along the way.
 - To allow the site's admin to message individual users in response to their messages.
 - To expand site's useability by categorizing posts and comments for users to easily be able to search for a spcific word or topic.
 
+### <span id="accessibility"></span>Accessibility and Design:
+
+This Django blog project prioritizes functionality and a positive user experience. The decision to use the standard Django template was deliberate, with a focus on providing a reliable and efficient platform for users. The choice of a standard template ensures consistency across the site, making navigation intuitive and straightforward.
+
+### Key Points:
+
+- **Functionality First:** The primary goal was to build a blog that meets user needs, ensuring a seamless and efficient experience.
+  
+- **Usability and Accessibility:** Attention was given to usability, accessibility, and responsiveness to enhance the overall user experience.
+
+- **Standard Template for Consistency:** The use of the standard Django template was intentional, providing a clean and uniform design throughout the site.
+
+- **Color Contrast and Design:** Careful consideration was given to color contrast, and the overall color scheme contributes to a visually pleasing interface.
+
+- **Future Customization:** The standard template sets the stage for future updates or customization without compromising the existing design.
+
+- **Efficiency in Development:** Opting for the standard template allowed for efficient development, emphasizing core features without unnecessary complexity.
+
+This approach reflects a balance between a user-centric design philosophy and efficient development practices.
+
+
+
 ### <span id="agile"></span>Agile Methodology:
 The principles of agile methodology were implemented during the project. By assigning user stories to issues and utilizing the GitHub Kanban board, the necessary project goals could be easliy prioritized. Labels were used to fine tune the priority of each user story.
 
 ## <span id="user-stories"></span>User Stories
-### <span id="users"></span>Users:
-- I can **register an account** so that **I can comment and like**
-- I can **log in to my account and see my messages** so that **keep track of conversations with admin**
-- I can **view a paginated list of pages** so that **I can easily select a page to view**
-- I can **view a list of posts** so that **I can select one to read**
-- I can **click on a post** so that **I can read the full text**
+## Epics
 
-- I can **leave comments on a post** so that **I can be involved in the conversation**
-- I can **view comments on an individual post** so that **I can read the conversation**
-- I can **edit my comments** so that **I can more deeply interact with the community**
-- I can **delete my own comments** so that **change my mind about a comment**
+1. **User Account Management**
+- [X] I can register an account so that I can comment and like.
+- [X] I can log in to my account and see my messages so that keep track of conversations with admin.
+- [X] I can edit my comments so that I can more deeply interact with the community.
+- [X] I can delete my own comments so that change my mind about a comment.
 
-- I can **like or unlike a post** so that **I can interact with the content**
-- I can **view the number of likes on each post** so that **I can see which is the most popular or viral**
+2. **Content Viewing and Interaction**
+- [X] I can view a paginated list of pages so that I can easily select a page to view.
+- [X] I can view a list of posts so that I can select one to read.
+- [X] I can click on a post so that I can read the full text.
+- [X] I can leave comments on a post so that I can be involved in the conversation.
+- [X] I can view comments on an individual post so that I can read the conversation.
+- [X] I can like or unlike a post so that I can interact with the content.
+- [X] I can view the number of likes on each post so that I can see which is the most popular or viral.
 
-- I can **create a draft message and save without sending** so that **I can take my time formulating a message over more than one site visit/login**
-- I can **send a message to the admin** so that **I can interact with the creator of the blog**
-- I can **delete messages** so that **I can clean out my inbox**
+3. **Messaging System**
+- [X] I can create a draft message and save without sending so that I can take my time formulating a message over more than one site visit/login.
+- [X] I can send a message to the admin so that I can interact with the creator of the blog.
+- [X] I can delete messages so that I can clean out my inbox.
 
-- I can **access the README.md file** so that **I can thoroughly read the appropriate documentation**
+4. **Content Creation and Management (Admin)**
+- [X] Admin can view comments on an individual post so that they can read the conversation.
+- [X] Admin can leave comments on a post so that they can be involved in the conversation.
+- [X] Admin can approve or disapprove comments so that they can filter out objectionable comments.
+- [X] Admin can delete messages so that they can clean out their inbox.
+- [X] Admin can view the number of likes on each post so that they can see which is the most popular or viral.
+- [X] Admin can create draft posts so that they can finish writing the content later.
+- [X] Admin can create, read, update, and delete posts so that they can manage blog content.
 
 *Disclaimer: The following User stories have not yet been implemented. They have been left on the project for the purpose of organizing future goals and projects to expand and enhance the blog site.
 
@@ -129,24 +161,49 @@ The principles of agile methodology were implemented during the project. By assi
 - I can **upvote on comments** so that **earn Karma points, eventually rewarding me with badges or digital trophies**
 - I can **mark a message as read** so that **my account can keep track for me if I have read a message or not**
 - I can **use a reply function on messages** so that **I can continue a string of messages with admin**
-
-### <span id="admin"></span>Admin:
-- I can **view comments on an individual post** so that **I can read the conversation**
-- I can **leave comments on a post** so that **I can be involved in the conversation**
-- I can **approve or disapprove comments** so that **I can filter out objectionable comments**
-
-- I can **delete messages** so that **I can clean out my inbox**
-- I can **view the number of likes on each post** so that **I can see which is the most popular or viral**
-
-- I can **create draft posts** so that **I can finish writing the content later**
-- I can **create, read, update, and delete posts** so that **I can manage my blog content**
-
-*Disclaimer: The following User stories have not yet been implemented. They have been left on the project for the purpose of organizing future goals and projects to expand and enhance the blog site.
-
 - I can **utilize a search capability** so that **I can easily locate specific topics or posts**
 - I can **categorize posts into sub-threads** so that **keep multiple posts organized**
 - I can **send message to Users from admin panel** so that **I can more personally interact with site Users**
 - I can **receive notifications** so that **I can see when someone likes or comments on my post**
+
+## <span id="wireframes"></span>Wireframes:
+The combination of a textual mindmap and a Lucidchart flowchart strikes a balance between clarity and visual representation. The textual mindmap ensures a quick, accessible overview, while the Lucidchart flowchart adds depth to user flows, fostering a comprehensive understanding of the blog's structure and interactions.
+
+- Admin Panel
+  - **Blog Management**
+    - Create Blog
+    - Edit Blog
+    - Publish Blog
+    - Save as Draft
+    - Delete Blog
+  - **Comment Supervision**
+    - View Comments
+  - **Message Reading**
+    - Inbox
+    - Draft Inbox
+    - Sent Messages
+
+![screenshot of Admin Wireframe](/media/gallery/admin-panel-wireframe.png)
+
+- Front-End User Interaction
+  - **Home Page**
+    - Scrollable List of Published Blogs
+  - **Navbar**
+    - Register/Sign Up
+    - Login
+    - Logout
+    - Home Page Navigation
+  - **Authenticated User**
+    - Inbox
+    - Draft Message Inbox
+    - Sent Messages Inbox
+    - **Message Actions**
+      - Send to Admin
+      - Save as Draft
+      - View Sent Messages
+      - Delete Messages
+
+![screenshot of UX Wireframe](/media/gallery/ux-wireframe.png)
 
 ## <span id="features"></span>Features
 ### <span id="navbar"></span>Navbar:

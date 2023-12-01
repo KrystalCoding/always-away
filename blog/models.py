@@ -9,6 +9,10 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Post(models.Model):
+    """
+    Model representing a blog post.
+    """
+
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
@@ -38,6 +42,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Model representing a comment on a blog post.
+    """
+
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True,)
     object_id = models.PositiveIntegerField(null=True)
     content_object = GenericForeignKey('content_type', 'object_id')
@@ -55,6 +63,10 @@ class Comment(models.Model):
 
 
 class Author(models.Model):
+    """
+    Model representing an author with a profile picture.
+    """
+
     User = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField()
 
@@ -63,6 +75,10 @@ class Author(models.Model):
 
 
 class Category(models.Model):
+    """
+    Model representing a category for blog posts.
+    """
+
     title = models.CharField(max_length=20)
 
     def __str__(self):
@@ -70,6 +86,10 @@ class Category(models.Model):
 
 
 class Photo(models.Model):
+    """
+    Model representing a photo with likes.
+    """
+
     image = models.ImageField(upload_to='images/')
     cloudinary_image = CloudinaryField("image")
     caption = models.CharField(max_length=200, blank=True)
@@ -81,6 +101,10 @@ class Photo(models.Model):
         return self.caption or 'Photo'
 
 class Message(models.Model):
+    """
+    Model representing a message with a sender, recipients, and content.
+    """
+    
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
     recipient = models.ManyToManyField(User, related_name='received_messages')
     subject = models.CharField(max_length=200)

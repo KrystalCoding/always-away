@@ -6,12 +6,19 @@ from django_summernote.admin import SummernoteModelAdmin
 
 
 class CommentInline(GenericTabularInline):
+    """
+    Inline for displaying comments in the admin panel.
+    """
+
     model = Comment
     extra = 0
 
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
+    """
+    Admin configuration for the Post model.
+    """
 
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('status', 'created_on')
@@ -22,6 +29,9 @@ class PostAdmin(SummernoteModelAdmin):
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for the Photo model.
+    """
 
     list_display = ('image', 'caption', 'uploaded_by', 'uploaded_on')
     search_fields = ('caption', 'uploaded_by__username', 'uploaded_on')
@@ -30,12 +40,18 @@ class PhotoAdmin(admin.ModelAdmin):
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for the Author model.
+    """
 
     list_display = ('User', 'profile_picture')
     search_fields = ('User__username',)
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for the Comment model.
+    """
 
     list_display = ('name', 'body', 'content_object_display', 'created_on', 'approved')
     list_filter = ('approved', 'created_on', 'content_type')
@@ -43,9 +59,17 @@ class CommentAdmin(admin.ModelAdmin):
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
+        """
+        Action to approve selected comments.
+        """
+
         queryset.update(approved=True)
 
     def content_object_display(self, obj):
+        """
+        Display the related content object in the admin panel.
+        """
+
         if hasattr(obj.content_object, 'title'):
             return obj.content_object.title
         elif hasattr(obj.content_object, 'caption'):
@@ -75,6 +99,10 @@ admin.site.register(Comment, CommentAdmin)
 admin.site.register(Message)
 
 def send_message_to_users(modeladmin, request, queryset):
+    """
+    Action to send a message to selected users.
+    """
+    
     for user in queryset:
         message = Message.objects.create(
             sender=request.user,
