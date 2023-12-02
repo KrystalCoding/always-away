@@ -24,7 +24,7 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['8000-krystalcodin-alwaysaway-ve39r6eyztl.ws-eu104.gitpod.io', '8000-krystalcodi-fullstackpr-88zimg00l5o.ws-eu104.gitpod.io', 'always-away.herokuapp.com', 'localhost', 'always-away-227aba88ca4e.herokuapp.com']
+ALLOWED_HOSTS = ['8000-krystalcodin-alwaysaway-7dmko9e1vk6.ws-eu106.gitpod.io', 'always-away.herokuapp.com', 'localhost', 'always-away-227aba88ca4e.herokuapp.com']
 
 
 # Application definition

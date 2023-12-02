@@ -8665,3 +8665,49 @@ Traceback (most recent call last):
   File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/db/models/fields/__init__.py", line 1825, in get_prep_value
     raise e.__class__(
 TypeError: Field 'id' expected a number but got <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x7f6fcad76cc0>>.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-7dmko9e1vk6.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-7dmko9e1vk6.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-7dmko9e1vk6.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-7dmko9e1vk6.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-7dmko9e1vk6.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-7dmko9e1vk6.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-7dmko9e1vk6.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-7dmko9e1vk6.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Internal Server Error: /admin/blog/author/add/
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/contrib/admin/options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1590, in _changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/django/contrib/admin/options.py", line 815, in log_addition
+    object_repr=str(object),
+                ^^^^^^^^^^^
+  File "/workspace/always-away/blog/models.py", line 74, in __str__
+    return self.user.username
+           ^^^^^^^^^
+AttributeError: 'Author' object has no attribute 'user'. Did you mean: 'User'?
+"POST /admin/blog/author/add/ HTTP/1.1" 500 128770
