@@ -8711,3 +8711,17 @@ Traceback (most recent call last):
            ^^^^^^^^^
 AttributeError: 'Author' object has no attribute 'user'. Did you mean: 'User'?
 "POST /admin/blog/author/add/ HTTP/1.1" 500 128770
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io'. You may need to add '8000-krystalcodin-alwaysaway-x4lwvyrsbbu.ws-eu106.gitpod.io' to ALLOWED_HOSTS.
