@@ -119,10 +119,9 @@ This approach reflects a balance between a user-centric design philosophy and ef
 
 
 ### <span id="agile"></span>Agile Methodology:
-The principles of agile methodology were implemented during the project. By assigning user stories to issues and utilizing the GitHub Kanban board, the necessary project goals could be easliy prioritized. Labels were used to fine tune the priority of each user story.
+The principles of agile methodology were implemented during the project. By assigning user stories to Epics and Milestones, utilizing GitHub's Kanban board, the necessary project goals could be easliy prioritized.
 
-## <span id="user-stories"></span>User Stories
-## Epics
+## <span id="user-stories"></span>User Story Epics
 
 1. **User Account Management**
 - [X] I can register an account so that I can comment and like.
@@ -153,7 +152,7 @@ The principles of agile methodology were implemented during the project. By assi
 - [X] Admin can create draft posts so that they can finish writing the content later.
 - [X] Admin can create, read, update, and delete posts so that they can manage blog content.
 
-*Disclaimer: The following User stories have not yet been implemented. They have been left on the project for the purpose of organizing future goals and projects to expand and enhance the blog site.
+The following User stories have not yet been implemented. They have been left on the project for the purpose of organizing future goals and projects to expand and enhance the blog site.
 
 - I can **make a blog post**
 - I can **utilize a search capability** so that **I can easily locate specific topics or posts**
@@ -167,7 +166,7 @@ The principles of agile methodology were implemented during the project. By assi
 - I can **receive notifications** so that **I can see when someone likes or comments on my post**
 
 ## <span id="wireframes"></span>Wireframes:
-The combination of a textual mindmap and a Lucidchart flowchart strikes a balance between clarity and visual representation. The textual mindmap ensures a quick, accessible overview, while the Lucidchart flowchart adds depth to user flows, fostering a comprehensive understanding of the blog's structure and interactions.
+The combination of a textual mindmap and a [Lucidchart](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier2_mixed_search_brand_exact_&km_CPC_CampaignId=1520850463&km_CPC_AdGroupID=57697288545&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=442433237648&km_CPC_TargetID=kwd-33511936169&km_CPC_Country=1012293&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gad_source=1&gclid=CjwKCAiAjrarBhAWEiwA2qWdCOSNG6sjJ3qs2nYVIIHwwbYKcWLE78MwEP-XwTdUHAvShv1Gm4uiiRoCjywQAvD_BwE) flowchart strikes a balance between clarity and visual representation. The textual mindmap ensures a quick, accessible overview, while the Lucidchart flowchart adds depth to user flows, fostering a comprehensive understanding of the blog's structure and interactions.
 
 - Admin Panel
   - **Blog Management**
@@ -281,7 +280,8 @@ Mobile View while user is authenticated and logged in:
 - [GitPod:](https://gitpod.io/)
 - [Am I Responsive?](https://ui.dev/amiresponsive?url=https://krystalcoding.github.io/antisocial-dog-meetups/)
 - [Favicon.io](https://favicon.io/)
-- [Figma Wireframing](https://www.figma.com/wireframe-tool/?utm_source=google&utm_medium=cpc&utm_campaign=20335659807&utm_term=online%20wireframe%20tool&utm_content=664692216843&gclid=Cj0KCQjwgNanBhDUARIsAAeIcAt2VbuxIVbr5x1CH3hQsz0lcVeZaaVpQApMCS4M4wz0oNr2kHjJDAkaAtI7EALw_wcB)
+- [Lucidchart Wireframing](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier2_mixed_search_brand_exact_&km_CPC_CampaignId=1520850463&km_CPC_AdGroupID=57697288545&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=442433237648&km_CPC_TargetID=kwd-33511936169&km_CPC_Country=1012293&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gad_source=1&gclid=CjwKCAiAjrarBhAWEiwA2qWdCOSNG6sjJ3qs2nYVIIHwwbYKcWLE78MwEP-XwTdUHAvShv1Gm4uiiRoCjywQAvD_BwE)
+ - [JSHint](https://jshint.com/)
 
 ### <span id="packages"></span>Installed Packages:
 - 'django<4' gunicorn
@@ -350,10 +350,9 @@ Alternatively - Use Gitpod:
 
 ### <span id="remaining"></span>Remaining Bugs:
 * Footer is not sticking to the bottom of the screen below the forms.
-* Message to ask user if they are sure they want to delete a message is not function. Code was removed from the repo for the sake of submitting the project, but it will be implemented eventually.
+* Message to ask user if they are sure they want to delete a message is not functioning. Code was removed from the repo for the sake of submitting the project, but it will be implemented eventually.
 * Confirmation messages to let user know their messages were saved as a draft or sent successfully are not functioning. Again, code was removed temporarily.
 * Unique photo upload to the blog posts via admin panel is not functioning and I do not currently know why, though the default image is being uploaded correctly.
-*I ran out of time before deadline to finish testing procedures, but have run everything through validators to make sure it functions. It received a poor score on Lighthouse due to Largest Contentful Paint. Future fix will be to decrease the size of the photos and reupload them to Cloudinary and then to the site.
 
 ## <span id="testing"></span>Testing
 ### <span id="validator"></span>Validator Testing:
@@ -451,10 +450,12 @@ Alternatively - Use Gitpod:
 
 </details>
 
+
 ### Automated testing
 
-- Testing was done using the built in Django module, unittest.
-- Coverage was also usesd to generate a report
+- Python testing was done using the built in Django module, unittest.
+- Javascript testing was done using JsHint.
+- Coverage was also usesd to generate a report.
 
 
 <details><summary>Bar & Grill App, test_models.py</summary>
@@ -489,55 +490,34 @@ Alternatively - Use Gitpod:
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/coverage-bookings.PNG">
 </details>
 
+### Javascript Testing
 
-### Device Testing & Browser compatibility
+**Automated Test 1: Timeout Function**
+- **Description:**
+This automated test passes JSHint successfully. It utilizes vanilla JavaScript to set a timeout function, which selects the close button within an element with the class "alert" and triggers a click event after 2000 milliseconds. The code ensures automatic closure of an alert.
 
-The site uses to test on various real world devices was [BrowserStack](https://ci-pp4-the-diplomat.herokuapp.com/)  
-
-This allowed me to test on real devices and not just device emulators.
-
-The following devices were used to test my site:
-
-<details><summary>Samsung Galaxy S22 Ultra</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-samsung-s22-ultra.PNG">
+<details><summary>Timeout Code</summary>
+<img src="./media/gallery/js-set-timeout-test.png">
 </details>
+<br>
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+| Execute the JavaScript timeout function | The function should find the close button for an alert with the class `.alert` and trigger a click event after a delay of 2000 milliseconds | Passes JSHint and works as expected. The setTimeout function triggers a click on the close button after a delay, simulating the automatic closure of an alert. |
 
-<details><summary>Apple iPhone 13</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-iphone-13.PNG">
+**Automated Test 2: Fade Away Function**
+- **Description:**
+This automated test successfully passes JSHint. It employs jQuery to fade out elements with the class "alert" after a delay of 2000 milliseconds. The use of "$" in this code is due to jQuery being embedded in HTML, indicating the successful integration of jQuery.
+
+<details><summary>Fade Away Code</summary>
+<img src="./media/gallery/js-fade-away-test.png">
 </details>
+<br>
 
-<details><summary>Google Pixel 5</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-google-pixel-5.PNG">
-</details>
-
-<details><summary>Mozilla Firefox (v105 latest)</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-firefox.PNG">
-</details>
-
-<details><summary>Google Chrome (v106 latest)</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-chrome.PNG">
-</details>
-
-<details><summary>Safari (Monteray v15.3 latest)</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-safari-monteray-15.3.PNG">
-</details>
-
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+| Execute the JavaScript timeout function with jQuery | The function should select all elements with the class `.alert` and fade them out slowly after a delay of 2000 milliseconds | Passes JSHint and works as expected. The setTimeout function, combined with jQuery, fades out elements with the class `.alert`` after a delay, providing a visual fade-away effect. |
 
 ##### Back to [top](#table-of-contents)<hr>
-
-
-## Bugs
-
-| **Bug** | **Fix** |
-| ------- | ------- |
-| css not loading| the css folder was created in uppercase as CSS, renamed and fixed |
-| While logged in as a user, on edit bookings page, if you changed the url booking number and if the number was a valid booking for another user it would access the booking | Defensive programming to make sure that only bookings made by the user would be visible |
-| Double bookings | Adjusted code to check that the date, time and table were unique together and to give an error to indicate to the user that the booking was unavailable for that date, time and table combination |
-| Food item description not showing on menu | A "p" element was used to encase the jinja code, once removed the food item description was then visible |
-| Foods not listing by type, starters, manins and desserts | I needed to fix the database loop for the food items to specify the food type had to be a starter to display in the starter section of the menu, and the same for mains and desserts |
-| Drinks not listing by type, wines, beers and cocktails | I needed to fix the database loop for the drinks item to specify the drink type had to be a wine to display in the wine section of the menu, and the same for beers and cocktails |
-| Card links not working on home page for book a table, food menu and drinks menu | The links were not set within urls.py so just needed to be wired up to load each relevant page |
-| Booking form accepting phone number that are too short | I used Django PhoneNumberField to ensure only valid phone formats were accepted |
 
 
 
