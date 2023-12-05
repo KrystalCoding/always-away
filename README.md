@@ -529,28 +529,28 @@ Alternatively - Use Gitpod:
    - **Purpose/Function:** Tests if a blog post is created successfully.
    - **How it passes:** Calls `create_test_post` and asserts that the post is created with the expected attributes.
       <details><summary>Create Post Test</summary>
-      <img src="../always-away/media/gallery/tests/test-create-post.png">
+      <img src="./media/gallery/tests/test-create-post.png">
       </details>
 
 4. **test_create_comment**
    - **Purpose/Function:** Tests if a comment on a blog post is created successfully.
    - **How it passes:** Creates a test post, creates a comment on that post, and asserts that the comment is created with the expected attributes.
       <details><summary>Create Comment Test</summary>
-      <img src="../always-away/media/gallery/tests/test-create-comment.png">
+      <img src="./media/gallery/tests/test-create-comment.png">
       </details>
 
 5. **test_comment_approval**
    - **Purpose/Function:** Tests if a comment can be marked as approved.
    - **How it passes:** Creates a test post, creates an unapproved comment on that post, marks the comment as approved, and asserts that the comment's approval status is updated.
          <details><summary>Comment Approval Test</summary>
-      <img src="../always-away/media/gallery/tests/test-comment-approval.png">
+      <img src="./media/gallery/tests/test-comment-approval.png">
       </details>
 
 ##### Back to [top](#table-of-contents)<hr>
 
 ### <span id="views"></span> Test Views (test_views.py)
 <details><summary>Pass Status</summary>
-<img src="../always-away/media/gallery/tests/test-views.png">
+<img src="./media/gallery/tests/test-views.png">
 </details>
 
 #### BlogViewsTests Class
@@ -563,35 +563,35 @@ Alternatively - Use Gitpod:
    - **Purpose/Function:** Tests if the post list view returns a successful response.
    - **How it passes:** Sends a GET request to the home page and asserts a 200 status code.
          <details><summary>Post List Test</summary>
-      <img src="../always-away/media/gallery/tests/test-post-list-view.png">
+      <img src="./media/gallery/tests/test-post-list-view.png">
       </details>
 
 3. **test_post_detail_view**
    - **Purpose/Function:** Tests if the post detail view returns a successful response.
    - **How it passes:** Creates a test post, generates the URL for the post detail view, sends a GET request, and asserts a 200 status code.
          <details><summary>Post Detail Test</summary>
-      <img src="../always-away/media/gallery/tests/test-post-detail-view.png">
+      <img src="./media/gallery/tests/test-post-detail-view.png">
       </details>
 
 4. **test_edit_blog_comment_view**
    - **Purpose/Function:** Tests if the edit blog comment view redirects appropriately.
    - **How it passes:** Creates a test post and comment, sends a GET request to the edit blog comment view, and asserts a 302 status code.
          <details><summary>Edit Blog Comment Test</summary>
-      <img src="../always-away/media/gallery/tests/test-edit-blog-comment-view.png">
+      <img src="./media/gallery/tests/test-edit-blog-comment-view.png">
       </details>
 
 5. **test_delete_blog_comment_view**
    - **Purpose/Function:** Tests if the delete blog comment view redirects appropriately.
    - **How it passes:** Creates a test post and comment, sends a GET request to the delete blog comment view, and asserts a 302 status code.
          <details><summary>Delete Blog Comment Test</summary>
-      <img src="../always-away/media/gallery/tests/test-delete-blog-comment-view.png">
+      <img src="./media/gallery/tests/test-delete-blog-comment-view.png">
       </details>
 
 6. **test_post_like_view**
    - **Purpose/Function:** Tests if the post like view redirects appropriately.
    - **How it passes:** Logs in a test user, creates a test post, sends a POST request to the post like view, and asserts a 302 status code.
          <details><summary>Post Like Test</summary>
-      <img src="../always-away/media/gallery/tests/test-post-like-view.png">
+      <img src="./media/gallery/tests/test-post-like-view.png">
       </details>
 
 ##### Back to [top](#table-of-contents)<hr>
@@ -599,7 +599,7 @@ Alternatively - Use Gitpod:
 ### <span id="urls"></span> Test URLs (test_urls.py)
 
 <details><summary>Pass Status</summary>
-<img src="../always-away/media/gallery/tests/test-urls.png">
+<img src="./media/gallery/tests/test-urls.png">
 </details>
 
 #### BlogURLTests Class
@@ -612,28 +612,28 @@ Alternatively - Use Gitpod:
    - **Purpose/Function:** Tests if the post list URL returns a successful response.
    - **How it passes:** Sends a GET request to the home page URL and asserts a 200 status code.
          <details><summary>Post List Test</summary>
-      <img src="../always-away/media/gallery/tests/test-post-list-url.png">
+      <img src="./media/gallery/tests/test-post-list-url.png">
       </details>
 
 3. **test_post_detail_url**
    - **Purpose/Function:** Tests if the post detail URL returns a successful response.
    - **How it passes:** Creates a test post, generates the URL for the post detail view, sends a GET request, and asserts a 200 status code.
          <details><summary>Post Detail Test</summary>
-      <img src="../always-away/media/gallery/tests/test-post-detail-url.png">
+      <img src="./media/gallery/tests/test-post-detail-url.png">
       </details>
 
 4. **test_edit_blog_comment_url**
    - **Purpose/Function:** Tests if the edit blog comment URL redirects appropriately.
    - **How it passes:** Creates a test post and comment, generates the URL for the edit blog comment view, sends a GET request, and asserts a 302 status code.
       <details><summary>Edit Blog Comment Test</summary>
-      <img src="../always-away/media/gallery/tests/test-edit-blog-comment-url.png">
+      <img src="./media/gallery/tests/test-edit-blog-comment-url.png">
       </details>
 
 5. **test_delete_blog_comment_url**
    - **Purpose/Function:** Tests if the delete blog comment URL redirects appropriately.
    - **How it passes:** Creates a test post and comment, generates the URL for the delete blog comment view, sends a GET request, and asserts a 302 status code.
          <details><summary>Delete Blog Comment Test</summary>
-      <img src="../always-away/media/gallery/tests/test-delete-blog-comment-url.png">
+      <img src="./media/gallery/tests/test-delete-blog-comment-url.png">
       </details>
 
 
