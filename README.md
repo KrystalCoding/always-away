@@ -512,7 +512,7 @@ Alternatively - Use Gitpod:
 
 ### Test Models (test_models.py)
 <details><summary>Pass Status</summary>
-<img src="../always-away/media/gallery/tests/test-models.png">
+<img src="./media/gallery/tests/test-models.png">
 </details>
 
 #### <span id="models"></span> BlogModelTests Class
