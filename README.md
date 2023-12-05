@@ -414,7 +414,7 @@ Alternatively - Use Gitpod:
 2. Automated testing
 
 ### <span id="manual"></span> 1. Manual Testing
-
+<hr>
 1. As a site User I can view a paginated list of pages so that I can easily select a page to view
 
 **Step** | **Expected Result** | **Actual Result**
@@ -423,42 +423,60 @@ Alternatively - Use Gitpod:
 | Click on the Social Media icons link in the footer | Associated social media icons will load in a separate tab | Works as expected |
 | Click on the 'Code Institute' or 'Django Framework' logos in the side panel | External tabs with associated websites will load | Works as expected |
 
-<details><summary></summary>
-<img src="">
-<img src="">
-<img src="">
-<img src="">
+<details><summary>Desktop Navbar</summary>
+<img src="./media/gallery/navbar.png">
 </details>
-
+<details><summary>Hamburger Navigation</summary>
+<img src="./media/gallery/navigation.png">
+</details>
+<details><summary>Social Media Links</summary>
+<img src="./media/gallery/footer.png">
+</details>
+<details><summary>Resource Logos</summary>
+<img src="./media/gallery/homepage.png">
+</details>
+<br>
+<hr>
 9. As an Admin / Authorised User I can log in so that I can access the back end of the site
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| Visit the admin page (ENTER LINK HERE)| Enter admin login credentials, gain access to back end | Works as expected |
+| Visit the [admin page](https://always-away-227aba88ca4e.herokuapp.com/admin/)| After verifying admin login credentials, gain access to back end | Works as expected |
 
-
-<details><summary></summary>
-<img src="">
-<img src="">
-
-
+<details><summary>Admin Panel</summary>
+<img src="./media/gallery/admin-panel.png">
 </details>
-
+<br>
+<hr>
 3. As a Site Owner I can create and save draft blog posts, publish new blog posts, and edit formerly published posts.
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| Click on Create new post | New Post form will appear | Works as expected |
+| Click on Add Post + | New Post form will appear | Works as expected |
 | Click on save post as draft | Post is saved in admin panel for further updates | Works as expected |
 | Click on publish post | New Post is published on front end for public viewing | Works as expected |
 | Click on edit post in admin panel | Updates are published on front end for public viewing | Works as expected |
 
-
-<details><summary></summary>
-<img src="">
-
+<details><summary>Add Post Button</summary>
+<img src="./media/gallery/add-post-button.png">
 </details>
-
+<details><summary>Add Post Form</summary>
+<img src="./media/gallery/add-post-form.png">
+</details>
+<details><summary>Save as Draft</summary>
+<img src="./media/gallery/save-post-as-draft.png">
+</details>
+<details><summary>View Draft Post</summary>
+<img src="./media/gallery/draft-status.png">
+</details>
+<details><summary>Publish Post</summary>
+<img src="./media/gallery/published.png">
+</details>
+<details><summary>Edit Post</summary>
+<img src="./media/gallery/edit-post.png">
+</details>
+<br>
+<hr>
 4. As a site User, I can register a personal account, access inbox, compose messages and save as drafts for further editing, and send messages to site admin.
 
 **Step** | **Expected Result** | **Actual Result**
@@ -468,14 +486,28 @@ Alternatively - Use Gitpod:
 | Click on the 'Contact' link in the navigation bar | Send Message to Admin form will load| Works as expected |
 | Click on the 'Inbox' link in the navigation bar, or 'Primary Inbox' button in the Draft Inbox page | Inbox page will load | Works as expected |
 | Click on the 'Draft Inbox' link in the navigation bar, or from the button in the Inbox page | Draft Inbox page will load| Works as expected |
-| Click on the 'Logout' link in the navigation bar | Logout page will load| Works as expected |
+| Click on the 'Sign Out' link in the navigation bar | Logout page will load| Works as expected |
 
-<details><summary></summary>
-<img src="">
-<img src="">
-
+<details><summary>Register New User</summary>
+<img src="./media/gallery/sign-up.png">
 </details>
-
+<details><summary>Login as Registered User</summary>
+<img src="./media/gallery/sign-in.png">
+</details>
+<details><summary>Contact Admin Form</summary>
+<img src="./media/gallery/send-message-form.png">
+</details>
+<details><summary>Primary Inbox</summary>
+<img src="./media/gallery/view-message.png">
+</details>
+<details><summary>Draft Inbox</summary>
+<img src="./media/gallery/draft-inbox.png">
+</details>
+<details><summary>Sign Out Form</summary>
+<img src="./media/gallery/sign-out.png">
+</details>
+<br>
+<hr>
 2. As a site User, I can view blog post homepage, access individual posts for viewing content, comments, and likes. When logged in as a registered user, I can post my own comments and like posts.
 
 **Step** | **Expected Result** | **Actual Result**
@@ -485,23 +517,28 @@ Alternatively - Use Gitpod:
  | Click on like button | Page refreshes and updates icon via user's action of either liking or unliking a post | Works as expected |
  | Write comment and post with button | Page refreshes with comment + ability for user to edit or delete their own comment | Works as expected |
 
-<details><summary></summary>
-<img src="">
-<img src="">
-
+<details><summary>Blog Home</summary>
+<img src="./media/gallery/navigation.png">
 </details>
-
+<details><summary>Post View with Heart Icon</summary>
+<img src="./media/gallery/likes.png">
+</details>
+<details><summary>Comment Form</summary>
+<img src="./media/gallery/comment-form.png">
+</details>
+<br>
+<hr>
 5. As a site Owner, I can approve or delete user comments from blog posts.
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| Click on 'Comments' in admin panel| Choose to approve or delete user comments | Works as expected |
+| Click on 'Comments' in admin panel| Choose to approve or delete user comments | Deleting Comments Works as Expected, but during production the priority was given to Users being able to view their comments on the blog posts immediately, without having to wait for admin approval simply to post. Therefore, admin approval for User comments is no longer applicable. |
 
-<details><summary></summary>
-<img src="">
-<img src="">
-
+<details><summary>Comment Police</summary>
+<img src="./media/gallery/delete-comments.png">
 </details>
+<br>
+<hr>
 
 ##### Back to [top](#table-of-contents)<hr>
 
