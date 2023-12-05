@@ -16,21 +16,18 @@ class BlogViewsTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_post_detail_view(self):
-        # Create a test post with the test user as the author
         post = Post.objects.create(
             title='Test Post',
             content='This is a test content.',
-            status=1, # Assuming 1 is the published status
+            status=1,
             author=self.user
         )
 
-        # Print the generated URL for debugging
         print("Generated URL:", reverse('post_detail', kwargs={'slug': post.slug}))
 
         response = self.client.get(reverse('post_detail', kwargs={'slug': post.slug}))
 
-        # Print the content of the response for debugging
-        print(response.content.decode('utf-8')) # Add this line
+        print(response.content.decode('utf-8'))
         self.assertEqual(response.status_code, 200)
 
 
@@ -71,7 +68,7 @@ class BlogViewsTests(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_post_like_view(self):
-        self.client.login(username='testuser', password='testpassword')  # Authenticate the user
+        self.client.login(username='testuser', password='testpassword')
         post = Post.objects.create(
             title='Test Post',
             slug='test-post',
@@ -79,5 +76,5 @@ class BlogViewsTests(TestCase):
             content='This is a test content.'
         )
         response = self.client.post(reverse('post_like', args=[post.slug]))
-        self.assertEqual(response.status_code, 302)  # Assuming a redirect upon successful like
+        self.assertEqual(response.status_code, 302)
 

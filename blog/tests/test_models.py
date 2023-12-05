@@ -46,14 +46,12 @@ class BlogModelTests(TestCase):
             name='Test User',
             email='test@example.com',
             body='This is a test comment.',
-            approved=False  # Assuming you have an 'approved' field in your Comment model
+            approved=False
         )
         self.assertFalse(comment.approved)
 
-        # Now, you might have a method or functionality to approve the comment
         comment.approved = True
         comment.save()
 
-        # Reload the comment from the database to get the updated value
         updated_comment = Comment.objects.get(pk=comment.pk)
         self.assertTrue(updated_comment.approved)

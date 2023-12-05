@@ -7,9 +7,9 @@ Always Away is a blog site, with the intention to create a community. The author
 View the live site by clicking [HERE](https://always-away-227aba88ca4e.herokuapp.com/).
 
 
-# <span id="contents-menu"></span>Contents menu
+# <span id="table-of-contents"></span> Table of Contents
 - [_Always Away_](#overview)
-- [_Contents menu_](#contents-menu)
+- [_Contents menu_](#table-of-contents)
 - [_UX_](#ux)
   - [_Site Purpose_](#purpose)
   - [_Site Goal_](#site-goal)
@@ -29,27 +29,19 @@ View the live site by clicking [HERE](https://always-away-227aba88ca4e.herokuapp
   - [_Post Detail_](#post-detail)
   - [_Sign Up_](#signup)
   - [_Sign In_](#signin)
-  - [_Log Out_](#logout)
+  - [_Sign Out_](#logout)
   - [_Upvote/Downvote_](#likes)
 - [_C.R.U.D._](#crud)
   - [_Commenting_](#comments)
-    - [_Create_](#c)
-      - [_Post Comment_](#post-comment)
-    - [_Read_](#r)
-      - [_View Comment_](#view-comment)
-    - [_Update_](#u)
-      - [_Edit Comment_](#edit-comment)
-    - [_Delete_](#d)
-      - [_Delete Comment_](#delete-comment)
+    - [_Create_](#cc)
+    - [_Read_](#cr)
+    - [_Update_](#cu)
+    - [_Delete_](#cd)
   - [_Messaging_](#messaging)
-    - [_Create_](#c)
-      - [_Send Message_](#send-message)
-    - [_Read_](#r)
-      - [_Read Message_](#read-message)
-    - [_Update_](#u)
-      - [_Edit Message_](#edit-message)
-    - [_Delete_](#d)
-      - [_Delete Message_](#delete-message)
+    - [_Create_](#mc)
+    - [_Read_](#mr)
+    - [_Update_](#mu)
+    - [_Delete_](#md)
 - [_Technologies_](#tech)
   - [_Main Languages_](#languages)
   - [_Frameworks, Libraries, and Programs_](#frameworks)
@@ -62,7 +54,12 @@ View the live site by clicking [HERE](https://always-away-227aba88ca4e.herokuapp
   - [_Fixed Bugs_](#fixed)
   - [_Remaining Bugs_](#remaining)
 - [_Testing_](#testing)
-  - [_Validator Testing_](#validator)
+  - [_Python Manual Testing_](#manual)
+  - [_Python Automated Testing_](#automated)
+    - [_Models_](#models)
+    - [_Views_](#views)
+    - [_URLs_](#urls)
+  - [_Javascript Testing_](#javascript)
 - [_Credits_](#credits)
 - [_Media_](#media)
 - [_Team Members_](#team)
@@ -96,6 +93,8 @@ and possibly make a new friend along the way.
 - To allow the site's admin to message individual users in response to their messages.
 - To expand site's useability by categorizing posts and comments for users to easily be able to search for a spcific word or topic.
 
+##### Back to [top](#table-of-contents)<hr>
+
 ### <span id="accessibility"></span>Accessibility and Design:
 
 This Django blog project prioritizes functionality and a positive user experience. The decision to use the standard Django template was deliberate, with a focus on providing a reliable and efficient platform for users. The choice of a standard template ensures consistency across the site, making navigation intuitive and straightforward.
@@ -116,12 +115,12 @@ This Django blog project prioritizes functionality and a positive user experienc
 
 This approach reflects a balance between a user-centric design philosophy and efficient development practices.
 
+##### Back to [top](#table-of-contents)<hr>
 
-
-### <span id="agile"></span>Agile Methodology:
+## <span id="agile"></span>Agile Methodology:
 The principles of agile methodology were implemented during the project. By assigning user stories to Epics and Milestones, utilizing GitHub's Kanban board, the necessary project goals could be easliy prioritized.
 
-## <span id="user-stories"></span>User Story Epics
+### <span id="user-stories"></span>User Story Epics
 
 1. **User Account Management**
 - [X] I can register an account so that I can comment and like.
@@ -152,7 +151,9 @@ The principles of agile methodology were implemented during the project. By assi
 - [X] Admin can create draft posts so that they can finish writing the content later.
 - [X] Admin can create, read, update, and delete posts so that they can manage blog content.
 
-The following User stories have not yet been implemented. They have been left on the project for the purpose of organizing future goals and projects to expand and enhance the blog site.
+<hr>
+
+The following User stories have not yet been implemented. They remain in the repository for the purpose of organizing future goals and projects - to expand and enhance the blog site.
 
 - I can **make a blog post**
 - I can **utilize a search capability** so that **I can easily locate specific topics or posts**
@@ -164,6 +165,8 @@ The following User stories have not yet been implemented. They have been left on
 - I can **categorize posts into sub-threads** so that **keep multiple posts organized**
 - I can **send message to Users from admin panel** so that **I can more personally interact with site Users**
 - I can **receive notifications** so that **I can see when someone likes or comments on my post**
+
+##### Back to [top](#table-of-contents)<hr>
 
 ## <span id="wireframes"></span>Wireframes:
 The combination of a textual mindmap and a [Lucidchart](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier2_mixed_search_brand_exact_&km_CPC_CampaignId=1520850463&km_CPC_AdGroupID=57697288545&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=442433237648&km_CPC_TargetID=kwd-33511936169&km_CPC_Country=1012293&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gad_source=1&gclid=CjwKCAiAjrarBhAWEiwA2qWdCOSNG6sjJ3qs2nYVIIHwwbYKcWLE78MwEP-XwTdUHAvShv1Gm4uiiRoCjywQAvD_BwE) flowchart strikes a balance between clarity and visual representation. The textual mindmap ensures a quick, accessible overview, while the Lucidchart flowchart adds depth to user flows, fostering a comprehensive understanding of the blog's structure and interactions.
@@ -204,62 +207,108 @@ The combination of a textual mindmap and a [Lucidchart](https://www.lucidchart.c
 
 ![screenshot of UX Wireframe](/media/gallery/ux-wireframe.png)
 
+##### Back to [top](#table-of-contents)<hr>
+
 ## <span id="features"></span>Features
-### <span id="navbar"></span>Navbar:
-Desktop View while user is logged out/unregistered:
-![screenshot of logged out Navbar](/media/gallery/navbar.png)
-Mobile View while user is authenticated and logged in:
-![screenshot of logged in Navigation](/media/gallery/navigation.png)
+### <span id="navbar"></span>Navbar
 
-### <span id="footer"></span>Footer/Social Media:
-![screenshot of Footer/Social Media Icons](/media/gallery/footer.png)
+<details><summary>Desktop View while user is logged out/unregistered</summary>
+<img src="./media/gallery/navbar.png">
+</details>
+<details><summary>Mobile View while user is authenticated and logged in</summary>
+<img src="./media/gallery/navigation.png">
+</details>
 
-### <span id="homepage"></span>Homepage:
-![screenshot of Homepage](/media/gallery/homepage.png)
+### <span id="footer"></span>Footer
+<details><summary>Social Media</summary>
+<img src="./media/gallery/footer.png">
+</details>
 
-### <span id="post-detail"></span>Post Detail View:
-![screenshot of Post Detail View](/media/gallery/post-detail.png)
+### <span id="homepage"></span>Homepage
+<details><summary>On initial page load</summary>
+<img src="./media/gallery/homepage.png">
+</details>
 
-### <span id="signup"></span>Sign Up:
-![screenshot of Sign Up Form](/media/gallery/sign-up.png)
+### <span id="post-detail"></span>Post Detail View
+<details><summary>Scrolling list of blog posts</summary>
+<img src="./media/gallery/post-detail.png">
+</details>
 
-### <span id="signin"></span>Sign In:
-![screenshot of Sign In Form](/media/gallery/sign-in.png)
+### <span id="signup"></span>Sign Up
+<details><summary>Sign up form</summary>
+<img src="./media/gallery/sign-up.png">
+</details>
 
-### <span id="logout"></span>Sign out:
-![screenshot of Sign Out Form](/media/gallery/sign-out.png)
+### <span id="signin"></span>Sign In
+<details><summary>Sign in Form</summary>
+<img src="./media/gallery/sign-in.png">
+</details>
+
+### <span id="logout"></span>Sign out
+<details><summary>Sign out form</summary>
+<img src="./media/gallery/sign-out.png">
+</details>
 
 ### <span id="likes"></span>Liking/Unliking:
-![screenshot of Like Function](/media/gallery/likes.png)
+<details><summary>Heart icon</summary>
+<img src="./media/gallery/likes.png">
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
 
 ## <span id="crud"></span>C.R.U.D.
-### <span id="comments"></span>Commenting:
-#### <span id="c"></span>Create:
-##### <span id="post-comment"></span>Post Comment:
-![screenshot of Post Comment Form](/media/gallery/post-comment-form.png)
-#### <span id="r"></span>Read:
-##### <span id="view-comment"></span>View Comment:
-![screenshot of Comment Form](/media/gallery/comment-form.png)
-#### <span id="u"></span>Update:
-##### <span id="edit-comment"></span>Edit Comment:
-![screenshot of Edit Comment Form](/media/gallery/edit-comment-form.png)
-#### <span id="d"></span>Delete:
-##### <span id="delete-comment"></span>Delete Comment:
-![screenshot of Delete Comment Form](/media/gallery/delete-comment-form.png)
-### <span id="messaging"></span>Messaging:
-#### <span id="c"></span>Create:
-##### <span id="send-message"></span>Send Message:
-![screenshot of Send Message Form](/media/gallery/send-message-form.png)
-#### <span id="r"></span>Read:
-##### <span id="read-message"></span>Read Message:
-![screenshot of Read Message Form](/media/gallery/view-message.png)
-#### <span id="u"></span>Update:
-##### <span id="edit-message"></span>Edit Message:
-![screenshot of Draft Inbox](/media/gallery/draft-inbox.png)
-![screenshot of Edit Message Form](/media/gallery/edit-message-form.png)
-#### <span id="d"></span>Delete:
-##### <span id="delete-message"></span>Delete Message:
-![screenshot of Delete Message Button](/media/gallery/view-message.png)
+### <span id="comments"></span>Commenting
+#### <span id="cc"></span>Create:
+
+<details><summary>Post Comment</summary>
+<img src="./media/gallery/post-comment-form.png">
+</details>
+
+#### <span id="cr"></span>Read:
+<details><summary>View Comment</summary>
+<img src="./media/gallery/comment-form.png">
+</details>
+
+#### <span id="cu"></span>Update:
+
+<details><summary>Edit Comment</summary>
+<img src="./media/gallery/edit-comment-form.png">
+</details>
+
+#### <span id="cd"></span>Delete:
+
+<details><summary>Delete Comment</summary>
+<img src="./media/gallery/delete-comment-form.png">
+</details>
+
+<hr>
+
+### <span id="messaging"></span>Messaging
+#### <span id="mc"></span>Create:
+
+<details><summary>Send Message</summary>
+<img src="./media/gallery/send-message-form.png">
+</details>
+
+#### <span id="mr"></span>Read:
+
+<details><summary>View Message</summary>
+<img src="./media/gallery/view-message.png">
+</details>
+
+#### <span id="mu"></span>Update:
+
+<details><summary>Edit Message</summary>
+<img src="./media/gallery/edit-message-form.png">
+</details>
+
+#### <span id="md"></span>Delete:
+
+<details><summary>Delete Message</summary>
+<img src="./media/gallery/view-message.png">
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
 
 ## <span id="tech"></span>Technologies
 ### <span id="languages"></span>Main Languages:
@@ -290,6 +339,8 @@ Mobile View while user is authenticated and logged in:
 - django-summernote
 - django-allauth
 - django-crispy-forms
+
+##### Back to [top](#table-of-contents)<hr>
 
 ## <span id="deployment"></span>Deployment
 ### <span id="forking"></span>Forking in Github:
@@ -342,6 +393,7 @@ Alternatively - Use Gitpod:
 20. Use the Deploy tab in Heroku to connect to the github repository
 21. Click "Deploy"
 
+##### Back to [top](#table-of-contents)<hr>
 
 ## <span id="bugs"></span>Bugs
 ### <span id="fixed"></span>Fixed Bugs:
@@ -354,13 +406,14 @@ Alternatively - Use Gitpod:
 * Confirmation messages to let user know their messages were saved as a draft or sent successfully are not functioning. Again, code was removed temporarily.
 * Unique photo upload to the blog posts via admin panel is not functioning and I do not currently know why, though the default image is being uploaded correctly.
 
+##### Back to [top](#table-of-contents)<hr>
+
 ## <span id="testing"></span>Testing
-### <span id="validator"></span>Validator Testing:
 
 1. Manual testing
 2. Automated testing
 
-### Manual testing
+### <span id="manual"></span> 1. Manual Testing
 
 1. As a site User I can view a paginated list of pages so that I can easily select a page to view
 
@@ -450,47 +503,144 @@ Alternatively - Use Gitpod:
 
 </details>
 
+##### Back to [top](#table-of-contents)<hr>
 
-### Automated testing
+### <span id="automated"></span> 2. Automated testing
 
 - Python testing was done using the built in Django module, unittest.
 - Javascript testing was done using JsHint.
-- Coverage was also usesd to generate a report.
 
-
-<details><summary>Bar & Grill App, test_models.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-models.PNG">
+### Test Models (test_models.py)
+<details><summary>Pass Status</summary>
+<img src="../always-away/media/gallery/tests/test-models.png">
 </details>
 
-<details><summary>Bar & Grill App, test_views.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-views.PNG">
+#### <span id="models"></span> BlogModelTests Class
+
+1. **setUp**
+   - **Purpose/Function:** Set up a test user for use in subsequent test cases.
+   - **How it passes:** Creates a test user with a username and password.
+
+2. **create_test_post**
+   - **Purpose/Function:** Helper method to create a test blog post.
+   - **How it passes:** Creates a test post with specified attributes.
+
+3. **test_create_post**
+   - **Purpose/Function:** Tests if a blog post is created successfully.
+   - **How it passes:** Calls `create_test_post` and asserts that the post is created with the expected attributes.
+      <details><summary>Create Post Test</summary>
+      <img src="../always-away/media/gallery/tests/test-create-post.png">
+      </details>
+
+4. **test_create_comment**
+   - **Purpose/Function:** Tests if a comment on a blog post is created successfully.
+   - **How it passes:** Creates a test post, creates a comment on that post, and asserts that the comment is created with the expected attributes.
+      <details><summary>Create Comment Test</summary>
+      <img src="../always-away/media/gallery/tests/test-create-comment.png">
+      </details>
+
+5. **test_comment_approval**
+   - **Purpose/Function:** Tests if a comment can be marked as approved.
+   - **How it passes:** Creates a test post, creates an unapproved comment on that post, marks the comment as approved, and asserts that the comment's approval status is updated.
+         <details><summary>Comment Approval Test</summary>
+      <img src="../always-away/media/gallery/tests/test-comment-approval.png">
+      </details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+### <span id="views"></span> Test Views (test_views.py)
+<details><summary>Pass Status</summary>
+<img src="../always-away/media/gallery/tests/test-views.png">
 </details>
 
-<details><summary>Bar & Grill App, test_urls.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-urls.PNG">
+#### BlogViewsTests Class
+
+1. **setUp**
+   - **Purpose/Function:** Set up a test user for use in subsequent test cases.
+   - **How it passes:** Creates a test user with a username and password.
+
+2. **test_post_list_view**
+   - **Purpose/Function:** Tests if the post list view returns a successful response.
+   - **How it passes:** Sends a GET request to the home page and asserts a 200 status code.
+         <details><summary>Post List Test</summary>
+      <img src="../always-away/media/gallery/tests/test-post-list-view.png">
+      </details>
+
+3. **test_post_detail_view**
+   - **Purpose/Function:** Tests if the post detail view returns a successful response.
+   - **How it passes:** Creates a test post, generates the URL for the post detail view, sends a GET request, and asserts a 200 status code.
+         <details><summary>Post Detail Test</summary>
+      <img src="../always-away/media/gallery/tests/test-post-detail-view.png">
+      </details>
+
+4. **test_edit_blog_comment_view**
+   - **Purpose/Function:** Tests if the edit blog comment view redirects appropriately.
+   - **How it passes:** Creates a test post and comment, sends a GET request to the edit blog comment view, and asserts a 302 status code.
+         <details><summary>Edit Blog Comment Test</summary>
+      <img src="../always-away/media/gallery/tests/test-edit-blog-comment-view.png">
+      </details>
+
+5. **test_delete_blog_comment_view**
+   - **Purpose/Function:** Tests if the delete blog comment view redirects appropriately.
+   - **How it passes:** Creates a test post and comment, sends a GET request to the delete blog comment view, and asserts a 302 status code.
+         <details><summary>Delete Blog Comment Test</summary>
+      <img src="../always-away/media/gallery/tests/test-delete-blog-comment-view.png">
+      </details>
+
+6. **test_post_like_view**
+   - **Purpose/Function:** Tests if the post like view redirects appropriately.
+   - **How it passes:** Logs in a test user, creates a test post, sends a POST request to the post like view, and asserts a 302 status code.
+         <details><summary>Post Like Test</summary>
+      <img src="../always-away/media/gallery/tests/test-post-like-view.png">
+      </details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+### <span id="urls"></span> Test URLs (test_urls.py)
+
+<details><summary>Pass Status</summary>
+<img src="../always-away/media/gallery/tests/test-urls.png">
 </details>
 
-<details><summary>Bar & Grill App, Coverage</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/coverage-bar-and-grill.PNG">
-</details>
+#### BlogURLTests Class
 
-<details><summary>Bookings App, test_models.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-models.PNG">
-</details>
+1. **setUp**
+   - **Purpose/Function:** Set up a test user for use in subsequent test cases.
+   - **How it passes:** Creates a test user with a username and password.
 
-<details><summary>Bookings App, test_views.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-views.PNG">
-</details>
+2. **test_post_list_url**
+   - **Purpose/Function:** Tests if the post list URL returns a successful response.
+   - **How it passes:** Sends a GET request to the home page URL and asserts a 200 status code.
+         <details><summary>Post List Test</summary>
+      <img src="../always-away/media/gallery/tests/test-post-list-url.png">
+      </details>
 
-<details><summary>Bookings App, test_urls.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-urls.PNG">
-</details>
+3. **test_post_detail_url**
+   - **Purpose/Function:** Tests if the post detail URL returns a successful response.
+   - **How it passes:** Creates a test post, generates the URL for the post detail view, sends a GET request, and asserts a 200 status code.
+         <details><summary>Post Detail Test</summary>
+      <img src="../always-away/media/gallery/tests/test-post-detail-url.png">
+      </details>
 
-<details><summary>Bookings App, Coverage</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/coverage-bookings.PNG">
-</details>
+4. **test_edit_blog_comment_url**
+   - **Purpose/Function:** Tests if the edit blog comment URL redirects appropriately.
+   - **How it passes:** Creates a test post and comment, generates the URL for the edit blog comment view, sends a GET request, and asserts a 302 status code.
+      <details><summary>Edit Blog Comment Test</summary>
+      <img src="../always-away/media/gallery/tests/test-edit-blog-comment-url.png">
+      </details>
 
-### Javascript Testing
+5. **test_delete_blog_comment_url**
+   - **Purpose/Function:** Tests if the delete blog comment URL redirects appropriately.
+   - **How it passes:** Creates a test post and comment, generates the URL for the delete blog comment view, sends a GET request, and asserts a 302 status code.
+         <details><summary>Delete Blog Comment Test</summary>
+      <img src="../always-away/media/gallery/tests/test-delete-blog-comment-url.png">
+      </details>
+
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+### <span id="javascript"></span> Javascript Testing
 
 **Automated Test 1: Timeout Function**
 - **Description:**
@@ -500,6 +650,7 @@ This automated test passes JSHint successfully. It utilizes vanilla JavaScript t
 <img src="./media/gallery/js-set-timeout-test.png">
 </details>
 <br>
+
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
 | Execute the JavaScript timeout function | The function should find the close button for an alert with the class `.alert` and trigger a click event after a delay of 2000 milliseconds | Passes JSHint and works as expected. The setTimeout function triggers a click on the close button after a delay, simulating the automatic closure of an alert. |
@@ -519,16 +670,15 @@ This automated test successfully passes JSHint. It employs jQuery to fade out el
 
 ##### Back to [top](#table-of-contents)<hr>
 
-
-
 ## <span id="credits"></span>Credits
 * Martina Terlevic: Code Institute Mentor and center of sanity.
-* OpenAI for the cheesy content of my fake blog posts.
 * Code Institute's walkthrough Django project, called [_I think therefore I blog_](https://github.com/Code-Institute-Solutions/Django3blog/tree/master), for basic repository set up and starter Django project code.
 * Clueless Biker's github project ["print(STATEMENTS)"](https://github.com/CluelessBiker/project4-print-statements) for the README.md inspiration.
 * ErikHgm's github project ["FireHouse Restaurant"](https://github.com/ErikHgm/FireHouse-Restaurant-Project) for README.md inspiration.
 * Code Institute's tutors, and fellow students on Slack for degugging
 * [Stack Overflow](https://try.stackoverflow.co/explore-teams?utm_source=adwords&utm_medium=ppc&utm_campaign=kb_teams_search_brand_emea-dach&_bt=657236278306&_bk=stack+overflow&_bm=p&_bn=g&gclid=Cj0KCQjwgNanBhDUARIsAAeIcAt8RyvjI8QiLAj3kyl-W8hBXwtXekioNxfa6XQ9uT2fIyg7jq52MJMaAqKQEALw_wcB) for coding solutions when I was terribly stuck.
+
+##### Back to [top](#table-of-contents)<hr>
 
 ## <span id="media"></span>Media
 
@@ -549,3 +699,6 @@ This automated test successfully passes JSHint. It employs jQuery to fade out el
 | Name                | LinkedIn                                                                                    | GitHub                                                                                    |
 |---------------------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | Krystal Juvrud | [<img src="https://skillicons.dev/icons?i=linkedin" height="20px" alt="LinkedIn" />](https://www.linkedin.com/in/krystal-juvrud/)             | [<img src="https://skillicons.dev/icons?i=github" height="20px" alt="GitHub" />](https://github.com/KrystalCoding)               |
+
+
+##### Back to [top](#table-of-contents)<hr>
